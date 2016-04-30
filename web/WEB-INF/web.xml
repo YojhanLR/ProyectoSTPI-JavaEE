@@ -4,9 +4,17 @@
         <servlet-name>ServletPrueba</servlet-name>
         <servlet-class>com.stpi.controller.ServletPrueba</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConductorUpdate</servlet-name>
+        <servlet-class>com.stpi.controller.ConductorUpdate</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPrueba</servlet-name>
         <url-pattern>/ServletPrueba</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConductorUpdate</servlet-name>
+        <url-pattern>/Conductor/Update</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
