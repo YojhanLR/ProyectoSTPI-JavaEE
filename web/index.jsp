@@ -10,8 +10,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
     </head>
     <body>
         <h1>Hello World!</h1>
+
+        <a alt="Editar usuario" title="Editar" href="<%=request.getContextPath()%>/Conductor/Edit?id=1" class="btn btn-warning btn-xs">Editar conductor</a>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="public/js/bootstrap.js"></script>
     </body>
 </html>
