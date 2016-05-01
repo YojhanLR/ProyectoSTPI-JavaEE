@@ -8,6 +8,22 @@
         <servlet-name>ConductorUpdate</servlet-name>
         <servlet-class>com.stpi.controller.ConductorUpdate</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConductorEdit</servlet-name>
+        <servlet-class>com.stpi.controller.ConductorEdit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConductorIndex</servlet-name>
+        <servlet-class>com.stpi.controller.ConductorIndex</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConductorCreate</servlet-name>
+        <jsp-file>/views/conductor/create.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>ConductorStore</servlet-name>
+        <servlet-class>com.stpi.controller.ConductorStore</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPrueba</servlet-name>
         <url-pattern>/ServletPrueba</url-pattern>
@@ -15,6 +31,22 @@
     <servlet-mapping>
         <servlet-name>ConductorUpdate</servlet-name>
         <url-pattern>/Conductor/Update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConductorEdit</servlet-name>
+        <url-pattern>/Conductor/Edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConductorIndex</servlet-name>
+        <url-pattern>/Conductor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConductorCreate</servlet-name>
+        <url-pattern>/Conductor/Create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConductorStore</servlet-name>
+        <url-pattern>/Conductor/Store</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

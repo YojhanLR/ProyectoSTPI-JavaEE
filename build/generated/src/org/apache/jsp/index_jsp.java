@@ -41,28 +41,28 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"public/css/bootstrap.css\">\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <h1>Hello World!</h1>\n");
-      out.write("\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("        <title>JSP Page</title>\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"public/css/bootstrap.css\">\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
+      out.write("        <h1>Home</h1>\r\n");
+      out.write("\r\n");
       out.write("        <a alt=\"Editar usuario\" title=\"Editar\" href=\"");
       out.print(request.getContextPath());
-      out.write("/Conductor/Edit?id=1\" class=\"btn btn-warning btn-xs\">Editar conductor</a>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\"></script>\n");
-      out.write("        <script src=\"public/js/bootstrap.js\"></script>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("/Conductor\" class=\"btn btn-warning btn-xs\">Ver lista de conductores</a>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\"></script>\r\n");
+      out.write("        <script src=\"public/js/bootstrap.js\"></script>\r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
