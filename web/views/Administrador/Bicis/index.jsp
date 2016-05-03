@@ -31,14 +31,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">STPI</a>
+      <a class="navbar-brand" href="<%=request.getContextPath()%>/views/Administrador/index.jsp">STPI</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
-           <li><a href="<%=request.getContextPath()%>/views/Administrador/Buses/index.jsp">Buses</a></li>
-        <li><a href="<%=request.getContextPath()%>/views/Administrador/Transfer/index.jsp">Transfer</a></li>
+        
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buses <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<%=request.getContextPath()%>/views/Administrador/Buses/index.jsp">Listar Buses</a></li>
+            <li><a href="#">Monitoreo de Rutas</a></li>
+          </ul>
+        </li>
+        
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transfer <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<%=request.getContextPath()%>/views/Administrador/Transfer/index.jsp">Listar Transfer</a></li>
+            <li><a href="#">Monitoreo de Rutas</a></li>
+          </ul>
+        </li>   
         <li><a href="<%=request.getContextPath()%>/views/Administrador/Bicis/index.jsp">Bici-Agil</a></li>
         <li><a href="<%=request.getContextPath()%>/views/Administrador/Clientes/index.jsp">Clientes</a></li>
        
@@ -57,7 +71,7 @@
                        data-toggle="table">
                    
                     <thead>
-                        <a href="<%=request.getContextPath()%>/Administrador/Bicis/create.jsp" class="btn btn-success pull-left" style="margin: 20px 0;">Crear nuevo</a>  
+                        <a href="<%=request.getContextPath()%>/views/Administrador/Bicis/create.jsp" class="btn btn-success pull-left" style="margin: 20px 0;">Crear nuevo</a>  
                         <th data-sortable="true">Id</th>
                         <th data-align="center" data-sortable="true">Estado</th>
                        <th data-align="center" data-sortable="true">Estacion</th>
@@ -78,7 +92,7 @@
                                     
                                     
 
-                                    <a alt="Editar Bici" title="Editar" href="<%=request.getContextPath()%>/Administrador/Bicis/edit.jsp id=${conductor.conductorId}" class="btn btn-warning btn-xs">
+                                    <a alt="Editar Bici" title="Editar" href="<%=request.getContextPath()%>/views/Administrador/Bicis/edit.jsp id=${conductor.conductorId}" class="btn btn-warning btn-xs">
                                         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                                     </a>
                                 </td>
@@ -92,10 +106,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script src="${pageContext.request.contextPath}/public/js/bootstrap.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Administrador/js/bootstrap.min.js"></script>
+
+       
         <script src="${pageContext.request.contextPath}/public/plugins/bootstrap-table/dist/bootstrap-table.js"></script>
     
-         <script src="${pageContext.request.contextPath}/views/Administrador/js/bootstrap.min.js"></script>
-         <script src="${pageContext.request.contextPath}/views/Administrador/js/jquery.js"></script>
+        
     </body>
 </html>

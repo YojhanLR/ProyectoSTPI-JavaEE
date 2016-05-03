@@ -32,14 +32,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">STPI</a>
+      <a class="navbar-brand" href="<%=request.getContextPath()%>/views/Administrador/index.jsp">STPI</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
-           <li><a href="<%=request.getContextPath()%>/views/Administrador/Buses/index.jsp">Buses</a></li>
-        <li><a href="<%=request.getContextPath()%>/views/Administrador/Transfer/index.jsp">Transfer</a></li>
+        
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buses <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<%=request.getContextPath()%>/views/Administrador/Buses/index.jsp">Listar Buses</a></li>
+            <li><a href="#">Monitoreo de Rutas</a></li>
+          </ul>
+        </li>
+        
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transfer <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<%=request.getContextPath()%>/views/Administrador/Transfer/index.jsp">Listar Transfer</a></li>
+            <li><a href="#">Monitoreo de Rutas</a></li>
+          </ul>
+        </li>
         <li><a href="<%=request.getContextPath()%>/views/Administrador/Bicis/index.jsp">Bici-Agil</a></li>
         <li><a href="<%=request.getContextPath()%>/views/Administrador/Clientes/index.jsp">Clientes</a></li>
        
@@ -70,10 +84,17 @@
                             </c:otherwise>
                         </c:choose>
                     </div>
-                    <div class="col-md-12 form-group">
-                        <label for="estacion">Estacion: </label>
-                        <input id="estacion" value="${bus.ubicacion}" name="estacion" type="text" class="form-control" required=""></input>
-                    </div>
+                        
+                                <label for="select" class="col-lg-2 control-label">Estacion</label>
+                                 <div class="col-lg-10">
+                                    <select class="form-control" id="Estacion">
+                                        <option>Bici1</option>
+                                        <option>Bici2</option>
+                                        <option>Bici3</option>
+                                    </select>
+                             
+                            </div>
+                        </div>
 
                     <hr/>
 
@@ -90,10 +111,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script src="${pageContext.request.contextPath}/public/js/bootstrap.js"></script>
-        
+
          <script src="${pageContext.request.contextPath}/views/Administrador/js/bootstrap.min.js"></script>
-         <script src="${pageContext.request.contextPath}/views/Administrador/js/jquery.js"></script>
+    
 
         <script>
             $("input.date").datepicker({dateFormat: "dd/mm/yy"});

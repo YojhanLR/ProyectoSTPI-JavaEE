@@ -24,17 +24,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">STPI</a>
+      <a class="navbar-brand" href="<%=request.getContextPath()%>/views/Administrador/index.jsp">STPI</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
-         
-        <li class="dropdown">
+        
+       
+          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buses <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="<%=request.getContextPath()%>/views/Administrador/Buses/index.jsp">Opciones de Bus</a></li>
+            <li><a href="<%=request.getContextPath()%>/views/Administrador/Buses/index.jsp">Listar Buses</a></li>
             <li><a href="#">Monitoreo de Rutas</a></li>
           </ul>
         </li>
@@ -42,7 +43,7 @@
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transfer <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="<%=request.getContextPath()%>/views/Administrador/Transfer/index.jsp">Opciones de Transfer</a></li>
+            <li><a href="<%=request.getContextPath()%>/views/Administrador/Transfer/index.jsp">Listar Transfer</a></li>
             <li><a href="#">Monitoreo de Rutas</a></li>
           </ul>
         </li>
@@ -64,8 +65,11 @@
   <strong>Acceso correcto!</strong> Bienvenido <a href="#" class="alert-link">Sistema de transporte publico integrado</a>.
 </div>
     </header>
-           <script src="<%=request.getContextPath()%>/views/Administrador/js/bootstrap.min.js"></script>
-           <script src="<%=request.getContextPath()%>/views/Administrador/js/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="<%=request.getContextPath()%>/views/Administrador/js/bootstrap.min.js"></script>
+           
     </body>
 </html>
 
