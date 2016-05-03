@@ -24,6 +24,14 @@
         <servlet-name>ConductorStore</servlet-name>
         <servlet-class>com.stpi.controller.ConductorStore</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConductoDestroy</servlet-name>
+        <servlet-class>com.stpi.controller.ConductoDestroy</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConductorDestroy</servlet-name>
+        <servlet-class>com.stpi.controller.ConductorDestroy</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPrueba</servlet-name>
         <url-pattern>/ServletPrueba</url-pattern>
@@ -47,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>ConductorStore</servlet-name>
         <url-pattern>/Conductores/store</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConductorDestroy</servlet-name>
+        <url-pattern>/Conductores/destroy</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

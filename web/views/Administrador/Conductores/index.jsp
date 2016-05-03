@@ -96,7 +96,7 @@
                                     <a alt="Editar conductor" title="Editar" href="<%=request.getContextPath()%>/Conductores/edit?id=${conductor.conductorId}" class="btn btn-warning btn-xs">
                                         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                                     </a>
-                                   <a alt="Eliminar conductor" title="Eliminar" href="<%=request.getContextPath()%>/Conductores/edit?id=${conductor.conductorId}" class="btn btn-danger btn-xs">
+                                   <a alt="Eliminar conductor" title="Eliminar" onClick="return confirm ('¿Seguro desea eliminar este conductor?')" href="<%=request.getContextPath()%>/Conductores/destroy?id=${conductor.conductorId}" class="btn btn-danger btn-xs">
                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                     </a>
                                 </td>
