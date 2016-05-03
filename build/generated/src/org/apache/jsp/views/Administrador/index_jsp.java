@@ -70,23 +70,32 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      <ul class=\"nav navbar-nav\">\n");
       out.write("        <li class=\"active\"><a href=\"");
       out.print(request.getContextPath());
-      out.write("/Administrador/Conductores/index.jsp\">Conductores <span class=\"sr-only\">(current)</span></a></li>\n");
-      out.write("           <li><a href=\"");
+      out.write("/Conductores\">Conductores <span class=\"sr-only\">(current)</span></a></li>\n");
+      out.write("         \n");
+      out.write("        <li class=\"dropdown\">\n");
+      out.write("          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Buses <span class=\"caret\"></span></a>\n");
+      out.write("          <ul class=\"dropdown-menu\" role=\"menu\">\n");
+      out.write("            <li><a href=\"");
       out.print(request.getContextPath());
-      out.write("/Administrador/Buses/index.jsp\">Buses</a></li>\n");
+      out.write("/views/Administrador/Buses/index.jsp\">Opciones de Bus</a></li>\n");
+      out.write("            <li><a href=\"#\">Monitoreo de Rutas</a></li>\n");
+      out.write("          </ul>\n");
+      out.write("        </li>\n");
       out.write("        <li><a href=\"");
       out.print(request.getContextPath());
-      out.write("/Administrador/Transfer/index.jsp\">Transfer</a></li>\n");
+      out.write("/views/Administrador/Transfer/index.jsp\">Transfer</a></li>\n");
       out.write("        <li><a href=\"");
       out.print(request.getContextPath());
-      out.write("/Administrador/Bicis/index.jsp\">Bici-Agil</a></li>\n");
+      out.write("/views/Administrador/Bicis/index.jsp\">Bici-Agil</a></li>\n");
       out.write("        <li><a href=\"");
       out.print(request.getContextPath());
-      out.write("/Administrador/Clientes/index.jsp\">Clientes</a></li>\n");
+      out.write("/views/Administrador/Clientes/index.jsp\">Clientes</a></li>\n");
       out.write("       \n");
       out.write("      </ul>\n");
       out.write("      <ul class=\"nav navbar-nav navbar-right\">\n");
-      out.write("        <li><a href=\"#\">Salir</a></li>\n");
+      out.write("        <li><a href=\"");
+      out.print(request.getContextPath());
+      out.write("/index.jsp\">Salir</a></li>\n");
       out.write("      </ul>\n");
       out.write("    </div>\n");
       out.write("  </div>\n");
@@ -103,6 +112,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("           <script src=\"js/jquery.js\"></script>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
+      out.write("\n");
+      out.write("\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

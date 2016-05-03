@@ -18,7 +18,7 @@
     </servlet>
     <servlet>
         <servlet-name>ConductorCreate</servlet-name>
-        <jsp-file>/views/conductor/create.jsp</jsp-file>
+        <jsp-file>/views/Administrador/Conductores/create.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>ConductorStore</servlet-name>
@@ -30,23 +30,23 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConductorUpdate</servlet-name>
-        <url-pattern>/Conductor/Update</url-pattern>
+        <url-pattern>/Conductores/update</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConductorEdit</servlet-name>
-        <url-pattern>/Conductor/Edit</url-pattern>
+        <url-pattern>/Conductores/edit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConductorIndex</servlet-name>
-        <url-pattern>/Conductor</url-pattern>
+        <url-pattern>/Conductores</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConductorCreate</servlet-name>
-        <url-pattern>/Conductor/Create</url-pattern>
+        <url-pattern>/Conductores/create</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConductorStore</servlet-name>
-        <url-pattern>/Conductor/Store</url-pattern>
+        <url-pattern>/Conductores/store</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -37,7 +37,7 @@ public class ConductorIndex extends HttpServlet {
         
         List<Conductor> conductores = conductorFacade.findAll();
         request.setAttribute("conductores",conductores);
-        getServletContext().getRequestDispatcher("/views/conductor/index.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/views/Administrador/Conductores/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

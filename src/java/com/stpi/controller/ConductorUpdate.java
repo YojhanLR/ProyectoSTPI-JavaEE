@@ -64,7 +64,7 @@ public class ConductorUpdate extends HttpServlet {
            
             conductorFacade.edit(conductor);
             
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            response.sendRedirect(request.getContextPath() + "/Conductores");
            
         }   catch (ParseException ex) {
             Logger.getLogger(ConductorUpdate.class.getName()).log(Level.SEVERE, null, ex);

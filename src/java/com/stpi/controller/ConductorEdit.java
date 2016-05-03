@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author YojhanLR
  */
-@WebServlet(name = "ConductorEdit", urlPatterns = {"/Conductor/Edit"})
+@WebServlet(name = "ConductorEdit", urlPatterns = {"/Conductores/edit"})
 public class ConductorEdit extends HttpServlet {
     @EJB
     private ConductorFacadeLocal conductorFacade;
@@ -46,7 +46,7 @@ public class ConductorEdit extends HttpServlet {
         
         Conductor conductor = conductorFacade.find(id);
         request.setAttribute("conductor",conductor);
-        getServletContext().getRequestDispatcher("/views/conductor/edit.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/views/Administrador/Conductores/edit.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

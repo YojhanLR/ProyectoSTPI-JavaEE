@@ -65,7 +65,7 @@ public class ConductorStore extends HttpServlet {
            
             conductorFacade.create(conductor);
             
-            response.sendRedirect(request.getContextPath() + "/Conductor");
+            response.sendRedirect(request.getContextPath() + "/Conductores");
         } catch (ParseException ex) {
             Logger.getLogger(ConductorStore.class.getName()).log(Level.SEVERE, null, ex);
         }
