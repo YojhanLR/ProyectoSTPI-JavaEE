@@ -40,7 +40,8 @@ public class BiciIndex extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
       
-          List<Bicicleta> bicis = bicicletaFacade.findAll();
+          
+        List<Bicicleta> bicis = bicicletaFacade.findAll();
         request.setAttribute("bicis",bicis);
         getServletContext().getRequestDispatcher("/views/Administrador/Bicis/index.jsp").forward(request, response);
     

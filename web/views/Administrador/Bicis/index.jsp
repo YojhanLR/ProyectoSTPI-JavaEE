@@ -31,7 +31,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<%=request.getContextPath()%>/views/Administrador/index.jsp">STPI</a>
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/Home">STPI</a>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -65,7 +65,7 @@
         </div>
       </nav>
             
-        <div class="col-md-12">
+        <div class="col-md-offset-1 col-md-10">
             <div class="table-responsive">
                 <table class="table table-striped table-condensed" 
                        data-search="true"
@@ -86,9 +86,6 @@
                                 <td>${bici.estado}</td>
                                 <td>${estacion}</td>
                                 <td>
-                                    
-                                    
-
                                      <a alt="Eliminar bicicleta" title="Eliminar" onClick="return confirm ('¿Seguro desea eliminar este conductor?')" href="<%=request.getContextPath()%>/Bicis/destroy?id=${bici.bicicletaId}" class="btn btn-danger btn-xs">
                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                     </a>
