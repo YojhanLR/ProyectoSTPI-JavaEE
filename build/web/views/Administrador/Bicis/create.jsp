@@ -36,7 +36,7 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
+                        <li><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
 
 
                         <li class="dropdown">
@@ -54,7 +54,7 @@
                                 <li><a href="#">Monitoreo de Rutas</a></li>
                             </ul>
                         </li>
-                        <li><a href="<%=request.getContextPath()%>/Bicis">Bici-Agil</a></li>
+                        <li class="active"><a href="<%=request.getContextPath()%>/Bicis">Bici-Agil</a></li>
                         <li><a href="<%=request.getContextPath()%>/Clientes">Clientes</a></li>
 
                     </ul>

@@ -24,12 +24,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<%=request.getContextPath()%>/Home">STPI</a>
+            <a class="navbar-brand active" href="<%=request.getContextPath()%>/Home">STPI</a>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
+              <li><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
               
               
               <li class="dropdown">

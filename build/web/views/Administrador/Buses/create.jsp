@@ -35,10 +35,10 @@
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
+              <li><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
               
               
-              <li class="dropdown">
+              <li class="dropdown active" >
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buses <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="<%=request.getContextPath()%>/Buses">Listar Buses</a></li>
