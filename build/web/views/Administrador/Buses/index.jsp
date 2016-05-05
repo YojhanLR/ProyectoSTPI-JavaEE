@@ -77,7 +77,7 @@
                         <th data-sortable="true">Id</th>
                         <th data-sortable="true">Matricula</th>
                         <th data-align="center" data-sortable="true">Estado</th>
-                        <th data-sortable="true">Ubicacion</th> 
+                        <th data-sortable="true">Parqueadero</th> 
                         <th data-align="center">Opción</th>
                     </thead>
                     <tbody>

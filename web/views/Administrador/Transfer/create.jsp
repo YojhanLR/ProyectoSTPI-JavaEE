@@ -70,17 +70,17 @@
                 <form method="post" action="<%= request.getContextPath()%>/Transfer/store">
                    
                     <div class="col-md-12 form-group">
-                        <label for="matricula">Matricula </label>
+                        <label for="matricula">Matricula: </label>
                         <input id="matricula" name="matricula" type="text" class="form-control" required=""></input>
                     </div>
                    
                     <div class="col-md-12 form-group">
-                        <label>Estado </label>
+                        <label>Estado: </label>
                         <p class="midsize no-margin"><span class="label label-success">Libre</span></p>
                     </div>
 
                     <div class="col-md-12 form-group">
-                        <label for="ubicacion">Ubicacion </label>
+                        <label for="ubicacion">Parqueadero: </label>
                         <input id="ubicacion" name="ubicacion" type="text" class="form-control" required=""></input>
                     </div>
                     <hr/>
