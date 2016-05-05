@@ -84,12 +84,20 @@
                             <tr>
                                 <td>${conductor.conductorId}</td>
                                 <td>${conductor.cedula}</td>
-                            <td>${conductor
-                                      .nombre}</td>
+                                <td>${conductor.nombre}</td>
                                 <td><fmt:formatDate pattern="dd/MM/yyyy" value="${conductor.fechaNac}" /></td>
                                 <td>${conductor.telefono}</td>
                                 <td>${conductor.direccion}</td>
-                                <td>${conductor.estado}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${conductor.estado eq 'Libre'}">
+                                            <span class="label label-success" alt="${conductor.estado}">${conductor.estado}</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="label label-danger" alt="${conductor.estado}">${conductor.estado}</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
                                 <td>
                                     
                                     

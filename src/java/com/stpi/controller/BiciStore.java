@@ -6,9 +6,14 @@
 package com.stpi.controller;
 
 import com.stpi.ejb.BicicletaFacadeLocal;
+import com.stpi.ejb.EstacionBicicletaFacadeLocal;
+import com.stpi.ejb.EstacionFacadeLocal;
+import com.stpi.ejb.RutaFacadeLocal;
 import com.stpi.model.Bicicleta;
+import com.stpi.model.Estacion;
+import com.stpi.model.EstacionBicicleta;
+import com.stpi.model.Ruta;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,10 +28,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "BiciStore", urlPatterns = {"/BiciStore"})
 public class BiciStore extends HttpServlet {
     @EJB
+    private RutaFacadeLocal rutaFacade;
+    @EJB
+    private EstacionBicicletaFacadeLocal estacionBicicletaFacade;
+    @EJB
+    private EstacionFacadeLocal estacionFacade;
+    @EJB
     private BicicletaFacadeLocal bicicletaFacade;
+    //private static final Logger LOG = Logger.getLogger(BiciStore.class.getName());
     
     
-    
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,23 +52,29 @@ public class BiciStore extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-      
-       // String ruta = request.getParameter("ruta");
-      
-        
-        
           Bicicleta bici = new Bicicleta();
           
-          
           bici.setEstado("Libre");
-          //bici.(ruta);
           
           bicicletaFacade.create(bici);
           
-            
-            response.sendRedirect(request.getContextPath() + "/Bicis");
+          int idEstacion = Integer.parseInt(request.getParameter("Estacion"));
+          Estacion estacion = estacionFacade.find(idEstacion);
+          Ruta ruta = rutaFacade.find(estacion.getRutaId().getRutaId());
+          
+          EstacionBicicleta estacionBici = new EstacionBicicleta();
+          estacionBici.setBicicletaId(bici);
+          estacionBici.setEstacionId(estacion);
+          estacionBici.setRutaId(ruta);
+          
+          estacionBicicletaFacade.create(estacionBici);
+          
+          bici.getEstacionBicicletaList().add(estacionBici);
+          bicicletaFacade.edit(bici);
+          
+          response.sendRedirect(request.getContextPath() + "/Bicis");
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

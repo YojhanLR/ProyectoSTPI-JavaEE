@@ -85,12 +85,18 @@
                             <tr>
                                 <td>${bus.busId}</td>
                                 <td>${bus.matricula}</td>
-                                <td>${bus.estado}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${bus.estado eq 'Libre'}">
+                                            <span class="label label-success" alt="${bus.estado}">${bus.estado}</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="label label-danger" alt="${bus.estado}">${bus.estado}</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
                                 <td>${bus.ubicacion}</td> 
                                 <td>
-                                    
-                                    
-
                                     <a alt="Editar bus" title="Editar" href="<%=request.getContextPath()%>/Buses/edit?id=${bus.busId}" class="btn btn-warning btn-xs">
                                         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                                     </a>

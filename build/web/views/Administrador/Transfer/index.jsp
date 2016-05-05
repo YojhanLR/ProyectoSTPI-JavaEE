@@ -83,7 +83,16 @@
                             <tr>
                                 <td>${transfer.transferId}</td>
                                 <td>${transfer.matricula}</td>
-                                <td>${transfer.estado}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${transfer.estado eq 'Libre'}">
+                                            <span class="label label-success" alt="${transfer.estado}">${transfer.estado}</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="label label-danger" alt="${transfer.estado}">${transfer.estado}</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
                                 <td>${transfer.ubicacion}</td>
                                
                                 <td>

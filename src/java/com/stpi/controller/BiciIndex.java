@@ -6,10 +6,14 @@
 package com.stpi.controller;
 
 import com.stpi.ejb.BicicletaFacadeLocal;
+import com.stpi.ejb.EstacionFacadeLocal;
 import com.stpi.model.Bicicleta;
+import com.stpi.model.Estacion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +28,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "BiciIndex", urlPatterns = {"/BiciIndex"})
 public class BiciIndex extends HttpServlet {
     @EJB
+    private EstacionFacadeLocal estacionFacade;
+    @EJB
     private BicicletaFacadeLocal bicicletaFacade;
+    private static final Logger LOG = Logger.getLogger(BiciIndex.class.getName());
 
     
     
@@ -42,11 +49,18 @@ public class BiciIndex extends HttpServlet {
       
           
         List<Bicicleta> bicis = bicicletaFacade.findAll();
+        List<Estacion> estaciones = estacionFacade.findAll();
+        
+            //Estacion estacion = bici.getEstacionBicicletaList().get(0).getEstacionId().getNombre();
+      
         request.setAttribute("bicis",bicis);
+        request.setAttribute("estaciones",estaciones);
+        
         getServletContext().getRequestDispatcher("/views/Administrador/Bicis/index.jsp").forward(request, response);
     
         
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

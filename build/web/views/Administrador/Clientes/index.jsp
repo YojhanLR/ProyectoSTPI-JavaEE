@@ -89,7 +89,16 @@
                                 <td>${cliente.direccion}</td>
                                 <td>${cliente.telefono}</td>
                                 <td>${cliente.correo}</td>
-                                <td>${cliente.estado}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${cliente.estado eq 'Activo'}">
+                                            <span class="label label-success" alt="${cliente.estado}">${cliente.estado}</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="label label-danger" alt="${cliente.estado}">${cliente.estado}</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
                                 <td>
                             </tr>
                         </c:forEach>

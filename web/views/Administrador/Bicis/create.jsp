@@ -69,7 +69,6 @@
             <div class="col-md-4">
                 <h1>Crear Bici</h1>
                 <form method="post" action="<%= request.getContextPath()%>/Bicis/store">
-
                     <div class="col-md-12 form-group">
                         <label>Estado </label>
                         <p class="midsize no-margin"><span class="label label-success">Libre</span></p>
@@ -77,10 +76,10 @@
 
                     <div class="col-md-12 form-group">
                         <label for="select">Estacion:</label>
-                        <select class="form-control" id="Estacion">
-                            <option>Bici1</option>
-                            <option>Bici2</option>
-                            <option>Bici3</option>
+                        <select class="form-control" id="Estacion" name="Estacion" required>
+                            <option value="1">Bici-A</option>
+                            <option value="2">Bici-B</option>
+                            <option value="3">Bici-C</option>
                         </select>
                     </div>
 
@@ -88,6 +87,7 @@
                     <div class="col-md-12 form-group">
                         <input type="submit" value="Crear Bici" class="btn btn-primary"></input>
                     </div>
+                </form>
             </div>
         </form>
     </div>
