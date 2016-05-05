@@ -5,32 +5,29 @@
  */
 package com.stpi.controller;
 
-import com.stpi.ejb.ConductorFacadeLocal;
-import com.stpi.model.Conductor;
+import com.stpi.ejb.BicicletaFacadeLocal;
+import com.stpi.model.Bicicleta;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author YojhanLR
+ * @author HECTOR
  */
-public class ConductorStore extends HttpServlet {
+@WebServlet(name = "BiciIndex", urlPatterns = {"/BiciIndex"})
+public class BiciIndex extends HttpServlet {
     @EJB
-    private ConductorFacadeLocal conductorFacade;
+    private BicicletaFacadeLocal bicicletaFacade;
 
-    private static final Logger LOG = Logger.getLogger(ConductorUpdate.class.getName());
-    private static final DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+    
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,35 +39,13 @@ public class ConductorStore extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        try {
-            String nombre  = request.getParameter("nombre");
-            String cedula = request.getParameter("cedula");
-            String $fecha_nac = request.getParameter("fecha_nac");
-            String telefono = request.getParameter("telefono");
-            String direccion = request.getParameter("direccion");
-            
-            
-            Date fecha_nac = df.parse($fecha_nac);
-            
-            Conductor conductor = new Conductor();
-            
-            conductor.setNombre(nombre);
-            conductor.setCedula(cedula);
-            conductor.setFechaNac(fecha_nac);
-            conductor.setTelefono(telefono);
-            conductor.setDireccion(direccion);
-            conductor.setEstado("Libre");
-            
-           
-            conductorFacade.create(conductor);
-            
-            response.sendRedirect(request.getContextPath() + "/Conductores");
-        } catch (ParseException ex) {
-            Logger.getLogger(ConductorStore.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+      
+          List<Bicicleta> bicis = bicicletaFacade.findAll();
+        request.setAttribute("bicis",bicis);
+        getServletContext().getRequestDispatcher("/views/Administrador/Bicis/index.jsp").forward(request, response);
     
+        
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

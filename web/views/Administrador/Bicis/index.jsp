@@ -22,47 +22,49 @@
     
     <body>
     
-          <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="<%=request.getContextPath()%>/views/Administrador/index.jsp">STPI</a>
-    </div>
+           <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/views/Administrador/index.jsp">STPI</a>
+          </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
-        
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buses <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="<%=request.getContextPath()%>/views/Administrador/Buses/index.jsp">Listar Buses</a></li>
-            <li><a href="#">Monitoreo de Rutas</a></li>
-          </ul>
-        </li>
-        
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transfer <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="<%=request.getContextPath()%>/views/Administrador/Transfer/index.jsp">Listar Transfer</a></li>
-            <li><a href="#">Monitoreo de Rutas</a></li>
-          </ul>
-        </li>   
-        <li><a href="<%=request.getContextPath()%>/views/Administrador/Bicis/index.jsp">Bici-Agil</a></li>
-        <li><a href="<%=request.getContextPath()%>/views/Administrador/Clientes/index.jsp">Clientes</a></li>
-       
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="<%=request.getContextPath()%>/index.jsp">Salir</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
+              
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buses <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="<%=request.getContextPath()%>/Buses">Listar Buses</a></li>
+                  <li><a href="#">Monitoreo de Rutas</a></li>
+                </ul>
+              </li>
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transfer <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="<%=request.getContextPath()%>/Transfer">Listar Transfer</a></li>
+                  <li><a href="#">Monitoreo de Rutas</a></li>
+                </ul>
+              </li>
+              <li><a href="<%=request.getContextPath()%>/Bicis">Bici-Agil</a></li>
+              <li><a href="<%=request.getContextPath()%>/Clientes">Clientes</a></li>
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="<%=request.getContextPath()%>/index.jsp">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+            
         <div class="col-md-12">
             <div class="table-responsive">
                 <table class="table table-striped table-condensed" 
@@ -71,29 +73,24 @@
                        data-toggle="table">
                    
                     <thead>
-                        <a href="<%=request.getContextPath()%>/views/Administrador/Bicis/create.jsp" class="btn btn-success pull-left" style="margin: 20px 0;">Crear nuevo</a>  
+                        <a href="<%=request.getContextPath()%>/Bicis/create" class="btn btn-success pull-left" style="margin: 20px 0;">Crear nuevo</a>  
                         <th data-sortable="true">Id</th>
                         <th data-align="center" data-sortable="true">Estado</th>
                        <th data-align="center" data-sortable="true">Estacion</th>
                         <th data-align="center">Opción</th>
                     </thead>
                     <tbody>
-                        <c:forEach items="${conductores}" var="conductor">
+                        <c:forEach items="${bicis}" var="bici">
                             <tr>
-                                <td>${conductor.conductorId}</td>
-                                <td>${conductor.cedula}</td>
-                            <td>${conductor
-                                      .nombre}</td>
-                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${conductor.fechaNac}" /></td>
-                                <td>${conductor.telefono}</td>
-                                <td>${conductor.direccion}</td>
-                                <td>${conductor.estado}</td>
+                                <td>${bici.bicicletaId}</td>
+                                <td>${bici.estado}</td>
+                                <td>${estacion}</td>
                                 <td>
                                     
                                     
 
-                                    <a alt="Editar Bici" title="Editar" href="<%=request.getContextPath()%>/views/Administrador/Bicis/edit.jsp id=${conductor.conductorId}" class="btn btn-warning btn-xs">
-                                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                                     <a alt="Eliminar bicicleta" title="Eliminar" onClick="return confirm ('¿Seguro desea eliminar este conductor?')" href="<%=request.getContextPath()%>/Bicis/destroy?id=${bici.bicicletaId}" class="btn btn-danger btn-xs">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                     </a>
                                 </td>
                             </tr>

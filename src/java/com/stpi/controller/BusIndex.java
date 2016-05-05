@@ -5,32 +5,29 @@
  */
 package com.stpi.controller;
 
-import com.stpi.ejb.ConductorFacadeLocal;
-import com.stpi.model.Conductor;
+import com.stpi.ejb.BusFacadeLocal;
+import com.stpi.model.Bus;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author YojhanLR
+ * @author HECTOR
  */
-public class ConductorStore extends HttpServlet {
+@WebServlet(name = "BusIndex", urlPatterns = {"/BusIndex"})
+public class BusIndex extends HttpServlet {
     @EJB
-    private ConductorFacadeLocal conductorFacade;
+    private BusFacadeLocal busFacade;
+    
+    
 
-    private static final Logger LOG = Logger.getLogger(ConductorUpdate.class.getName());
-    private static final DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,37 +37,14 @@ public class ConductorStore extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+      protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        try {
-            String nombre  = request.getParameter("nombre");
-            String cedula = request.getParameter("cedula");
-            String $fecha_nac = request.getParameter("fecha_nac");
-            String telefono = request.getParameter("telefono");
-            String direccion = request.getParameter("direccion");
-            
-            
-            Date fecha_nac = df.parse($fecha_nac);
-            
-            Conductor conductor = new Conductor();
-            
-            conductor.setNombre(nombre);
-            conductor.setCedula(cedula);
-            conductor.setFechaNac(fecha_nac);
-            conductor.setTelefono(telefono);
-            conductor.setDireccion(direccion);
-            conductor.setEstado("Libre");
-            
-           
-            conductorFacade.create(conductor);
-            
-            response.sendRedirect(request.getContextPath() + "/Conductores");
-        } catch (ParseException ex) {
-            Logger.getLogger(ConductorStore.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+        List<Bus> buses = busFacade.findAll();
+        request.setAttribute("buses",buses);
+        getServletContext().getRequestDispatcher("/views/Administrador/Buses/index.jsp").forward(request, response);
     
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

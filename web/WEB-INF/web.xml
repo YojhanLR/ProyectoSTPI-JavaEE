@@ -24,14 +24,86 @@
         <servlet-name>ConductorStore</servlet-name>
         <servlet-class>com.stpi.controller.ConductorStore</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ConductoDestroy</servlet-name>
-        <servlet-class>com.stpi.controller.ConductoDestroy</servlet-class>
-    </servlet>
+   
     <servlet>
         <servlet-name>ConductorDestroy</servlet-name>
         <servlet-class>com.stpi.controller.ConductorDestroy</servlet-class>
     </servlet>
+ 
+ 
+    
+     <servlet>
+        <servlet-name>BusIndex</servlet-name>
+        <servlet-class>com.stpi.controller.BusIndex</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BusStore</servlet-name>
+        <servlet-class>com.stpi.controller.BusStore</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>BusUpdate</servlet-name>
+        <servlet-class>com.stpi.controller.BusUpdate</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>BusCreate</servlet-name>
+        <jsp-file>/views/Administrador/Buses/create.jsp</jsp-file>
+    </servlet>
+     <servlet>
+        <servlet-name>BusEdit</servlet-name>
+        <servlet-class>com.stpi.controller.BusEdit</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>BusDestroy</servlet-name>
+        <servlet-class>com.stpi.controller.BusDestroy</servlet-class>
+    </servlet>
+    
+     <servlet>
+        <servlet-name>BiciIndex</servlet-name>
+        <servlet-class>com.stpi.controller.BiciIndex</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BiciCreate</servlet-name>
+        <jsp-file>/views/Administrador/Bicis/create.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>BiciStore</servlet-name>
+        <servlet-class>com.stpi.controller.BiciStore</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BiciDestroy</servlet-name>
+        <servlet-class>com.stpi.controller.BiciDestroy</servlet-class>
+    </servlet>
+    
+     <servlet>
+        <servlet-name>TransferIndex</servlet-name>
+        <servlet-class>com.stpi.controller.TransferIndex</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TransferStore</servlet-name>
+        <servlet-class>com.stpi.controller.TransferStore</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>TransferUpdate</servlet-name>
+        <servlet-class>com.stpi.controller.TransferUpdate</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>TransferCreate</servlet-name>
+        <jsp-file>/views/Administrador/Transfer/create.jsp</jsp-file>
+    </servlet>
+     <servlet>
+        <servlet-name>TransferEdit</servlet-name>
+        <servlet-class>com.stpi.controller.TransferEdit</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>TransferDestroy</servlet-name>
+        <servlet-class>com.stpi.controller.TransferDestroy</servlet-class>
+    </servlet>
+    
+       <servlet>
+        <servlet-name>ClienteIndex</servlet-name>
+        <servlet-class>com.stpi.controller.ClienteIndex</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>ServletPrueba</servlet-name>
         <url-pattern>/ServletPrueba</url-pattern>
@@ -60,6 +132,84 @@
         <servlet-name>ConductorDestroy</servlet-name>
         <url-pattern>/Conductores/destroy</url-pattern>
     </servlet-mapping>
+   
+    
+  
+    <servlet-mapping>
+        <servlet-name>BiciIndex</servlet-name>
+        <url-pattern>/Bicis</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BiciCreate</servlet-name>
+        <url-pattern>/Bicis/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BiciStore</servlet-name>
+        <url-pattern>/Bicis/store</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BiciDestroy</servlet-name>
+        <url-pattern>/Bicis/destroy</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+         
+         
+        <servlet-name>ClienteIndex</servlet-name>
+        <url-pattern>/Clientes</url-pattern>
+    </servlet-mapping>
+    
+    
+     <servlet-mapping>
+        <servlet-name>BusIndex</servlet-name>
+        <url-pattern>/Buses</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>BusStore</servlet-name>
+        <url-pattern>/Buses/store</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>BusUpdate</servlet-name>
+        <url-pattern>/Buses/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BusCreate</servlet-name>
+        <url-pattern>/Buses/create</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>BusEdit</servlet-name>
+        <url-pattern>/Buses/edit</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>BusDestroy</servlet-name>
+        <url-pattern>/Buses/destroy</url-pattern>
+    </servlet-mapping>
+    
+    
+        <servlet-mapping>
+        <servlet-name>TransferIndex</servlet-name>
+        <url-pattern>/Transfer</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>TransferStore</servlet-name>
+        <url-pattern>/Transfer/store</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>TransferUpdate</servlet-name>
+        <url-pattern>/Transfer/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransferCreate</servlet-name>
+        <url-pattern>/Transfer/create</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>TransferEdit</servlet-name>
+        <url-pattern>/Transfer/edit</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>TransferDestroy</servlet-name>
+        <url-pattern>/Transfer/destroy</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

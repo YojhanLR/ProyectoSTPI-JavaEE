@@ -23,54 +23,54 @@
     <body>
         
            <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="<%=request.getContextPath()%>/views/Administrador/index.jsp">STPI</a>
-    </div>
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/views/Administrador/index.jsp">STPI</a>
+          </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
-           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buses <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="<%=request.getContextPath()%>/views/Administrador/Buses/index.jsp">Listar Buses</a></li>
-            <li><a href="#">Monitoreo de Rutas</a></li>
-          </ul>
-        </li>
-        
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transfer <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="<%=request.getContextPath()%>/views/Administrador/Transfer/index.jsp">Listar Transfer</a></li>
-            <li><a href="#">Monitoreo de Rutas</a></li>
-          </ul>
-        </li><li><a href="<%=request.getContextPath()%>/views/Administrador/Bicis/index.jsp">Bici-Agil</a></li>
-        <li><a href="<%=request.getContextPath()%>/views/Administrador/Clientes/index.jsp">Clientes</a></li>
-       
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="<%=request.getContextPath()%>/index.jsp">Salir</a></li>
-      </ul>
-    </div>
-  </div>
-</nav> 
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="<%=request.getContextPath()%>/Conductores">Conductores <span class="sr-only">(current)</span></a></li>
+              
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buses <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="<%=request.getContextPath()%>/Buses">Listar Buses</a></li>
+                  <li><a href="#">Monitoreo de Rutas</a></li>
+                </ul>
+              </li>
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transfer <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="<%=request.getContextPath()%>/Transfer">Listar Transfer</a></li>
+                  <li><a href="#">Monitoreo de Rutas</a></li>
+                </ul>
+              </li>
+              <li><a href="<%=request.getContextPath()%>/Bicis">Bici-Agil</a></li>
+              <li><a href="<%=request.getContextPath()%>/Clientes">Clientes</a></li>
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="<%=request.getContextPath()%>/index.jsp">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
         
         <div class="container">
             <div class="col-md-4">
                 <h1>Editar bus</h1>
-                <form method="post" action="<%= request.getContextPath()%>/Conductor/Update?id=${conductor.conductorId}">
-                    <div class="col-md-12 form-group">
-                        <label for="Id">Id: </label>
-                        <input id="id" value="${bus.id}" name="id" type="text" class="form-control" required=""></input>
-                    </div>
-                    <div class="col-md-12 form-group">
+                <form method="post" action="<%= request.getContextPath()%>/Buses/update?id=${bus.busId}">
+                   
+                   <div class="col-md-12 form-group">
                         <label for="matricula">Matricula: </label>
                         <input id="matricula" value="${bus.matricula}" name="matricula" type="text" class="form-control" required=""></input>
                     </div>
@@ -79,10 +79,10 @@
                         <label>Estado: </label>
                         <c:choose>
                             <c:when test="${bus.estado eq 'Libre'}">
-                                <p class="midsize no-margin"><span class="label label-success" alt="${conductor.estado}">${conductor.estado}</span></p>
+                                <p class="midsize no-margin"><span class="label label-success" alt="${bus.estado}">${bus.estado}</span></p>
                             </c:when>
                             <c:otherwise>
-                                <p class="midsize no-margin"><span class="label label-danger" alt="${conductor.estado}">${conductor.estado}</span></p>
+                                <p class="midsize no-margin"><span class="label label-danger" alt="${bus.estado}">${bus.estado}</span></p>
                             </c:otherwise>
                         </c:choose>
                     </div>

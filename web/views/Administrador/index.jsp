@@ -35,7 +35,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buses <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="<%=request.getContextPath()%>/views/Administrador/Buses/index.jsp">Listar Buses</a></li>
+                  <li><a href="<%=request.getContextPath()%>/Buses">Listar Buses</a></li>
                   <li><a href="#">Monitoreo de Rutas</a></li>
                 </ul>
               </li>
@@ -43,12 +43,12 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transfer <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="<%=request.getContextPath()%>/views/Administrador/Transfer/index.jsp">Listar Transfer</a></li>
+                  <li><a href="<%=request.getContextPath()%>/Transfer">Listar Transfer</a></li>
                   <li><a href="#">Monitoreo de Rutas</a></li>
                 </ul>
               </li>
-              <li><a href="<%=request.getContextPath()%>/views/Administrador/Bicis/index.jsp">Bici-Agil</a></li>
-              <li><a href="<%=request.getContextPath()%>/views/Administrador/Clientes/index.jsp">Clientes</a></li>
+              <li><a href="<%=request.getContextPath()%>/Bicis">Bici-Agil</a></li>
+              <li><a href="<%=request.getContextPath()%>/Clientes">Clientes</a></li>
               
             </ul>
             <ul class="nav navbar-nav navbar-right">
