@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Clientes</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/css/bootstrap.css">
@@ -113,7 +114,7 @@
             </div>
         </div>
                     
-        <jsp:include page="/views/Administrador/Clientes/registros.html" />
+        <jsp:include page="/views/Administrador/Clientes/registros.jsp" />
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -142,10 +143,9 @@
                 
                     <c:forEach items="${clientes}" var="cliente">
                         if(user_id === ${cliente.usuarioId}){
-                            
                             $('#myModalLabel').text('Registros de reservas: ${cliente.nombre}');
                             var i=0;
-                            
+                            <fmt:setLocale value="es"/>
                             <c:forEach items="${cliente.transferConductorList}" var="registro">
                                 $tableTransfer.bootstrapTable('insertRow', {
                                     index: i,
@@ -156,32 +156,29 @@
                                         conductorId: ${registro.conductorId.conductorId},
                                         nombreConductor: '${registro.conductorId.nombre}',
                                         kilometros: ${registro.kilometrosRecorridos},
-                                        fechainicio: '${registro.fechaInicio}',
-                                        fechafin: '${registro.fechaFin}'
+                                        fechainicio: '<fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${registro.fechaInicio}" />',
+                                        fechafin: '<fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${registro.fechaFin}" />'
                                     }
                                 });
                                 i++;
                              </c:forEach>
-                         
                              i=0;
-                             
                              <c:forEach items="${cliente.bicicletaUsuarioList}" var="registro">
                                 $tableBici.bootstrapTable('insertRow', {
                                     index: i,
                                     row: {
                                         id: ${registro.id},
                                         idBici: ${registro.bicicletaId.bicicletaId},
-                                        fechainicio: '${registro.fechaInicio}',
-                                        fechafin: '${registro.fechaFin}'
+                                        fechainicio: '<fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${registro.fechaInicio}" />',
+                                        fechafin: '<fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${registro.fechaFin}" />'
                                     }
                                 });
                                 i++;
                              </c:forEach>
-                             
-                             
                         }
                     </c:forEach>
             }
         </script>
+        
     </body>
 </html>

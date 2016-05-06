@@ -96,10 +96,6 @@
         <servlet-name>ClienteIndex</servlet-name>
         <servlet-class>com.stpi.controller.ClienteIndex</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>RegistroTransfer</servlet-name>
-        <servlet-class>com.stpi.controller.RegistroTransfer</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ConductorUpdate</servlet-name>
         <url-pattern>/Conductores/update</url-pattern>
@@ -195,10 +191,6 @@
     <servlet-mapping>
         <servlet-name>IndexHome</servlet-name>
         <url-pattern>/Home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegistroTransfer</servlet-name>
-        <url-pattern>/Registro/Transfer</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
