@@ -23,10 +23,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "TransferIndex", urlPatterns = {"/TransferIndex"})
 public class TransferIndex extends HttpServlet {
+    
     @EJB
     private TransferFacadeLocal transferFacade;
-    
-    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,12 +38,12 @@ public class TransferIndex extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         
-           List<Transfer> transfers = transferFacade.findAll();
-        request.setAttribute("transfers",transfers);
+        List<Transfer> transfers = transferFacade.findAll();
+        request.setAttribute("transfers", transfers);
         getServletContext().getRequestDispatcher("/views/Administrador/Transfer/index.jsp").forward(request, response);
-    
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

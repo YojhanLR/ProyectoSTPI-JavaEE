@@ -63,7 +63,11 @@ public class TransferConductor implements Serializable {
     @JoinColumn(name = "usuario_id", referencedColumnName = "usuario_id")
     @ManyToOne(optional = false)
     private Usuario usuarioId;
+    @JoinColumn(name = "ruta_id", referencedColumnName = "ruta_id")
+    @ManyToOne(optional = false)
+    private Ruta rutaId;
 
+    
     public TransferConductor() {
     }
 
@@ -131,6 +135,14 @@ public class TransferConductor implements Serializable {
 
     public void setUsuarioId(Usuario usuarioId) {
         this.usuarioId = usuarioId;
+    }
+    
+    public Ruta getRutaId() {
+        return rutaId;
+    }
+
+    public void setRutaId(Ruta rutaId) {
+        this.rutaId = rutaId;
     }
 
     @Override

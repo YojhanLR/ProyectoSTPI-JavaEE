@@ -111,7 +111,7 @@
                                 </td>
                             </tr>
                         </c:forEach>
-                    </body>
+                    </tbody>
                 </table>
             </div>
         </div>

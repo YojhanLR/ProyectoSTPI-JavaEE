@@ -5,7 +5,9 @@
  */
 package com.stpi.controller;
 
+import com.stpi.ejb.TransferConductorFacadeLocal;
 import com.stpi.ejb.UsuarioFacadeLocal;
+import com.stpi.model.TransferConductor;
 import com.stpi.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,6 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ClienteIndex", urlPatterns = {"/ClienteIndex"})
 public class ClienteIndex extends HttpServlet {
     @EJB
+    private TransferConductorFacadeLocal transferConductorFacade;
+    @EJB
     private UsuarioFacadeLocal usuarioFacade;
     
     
@@ -39,7 +43,10 @@ public class ClienteIndex extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+        
+        List<TransferConductor> registros = transferConductorFacade.findAll();
+        request.setAttribute("registros", registros);
+        
         List<Usuario> clientes = usuarioFacade.findAll();
         request.setAttribute("clientes",clientes);
         getServletContext().getRequestDispatcher("/views/Administrador/Clientes/index.jsp").forward(request, response);

@@ -53,6 +53,10 @@ public class Ruta implements Serializable {
     private List<Estacion> estacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rutaId")
     private List<EstacionBicicleta> estacionBicicletaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rutaId")
+    private List<TransferConductor> transferConductorList;
+
+   
 
     public Ruta() {
     }
@@ -116,6 +120,15 @@ public class Ruta implements Serializable {
 
     public void setEstacionBicicletaList(List<EstacionBicicleta> estacionBicicletaList) {
         this.estacionBicicletaList = estacionBicicletaList;
+    }
+    
+    @XmlTransient
+    public List<TransferConductor> getTransferConductorList() {
+        return transferConductorList;
+    }
+
+    public void setTransferConductorList(List<TransferConductor> transferConductorList) {
+        this.transferConductorList = transferConductorList;
     }
 
     @Override
