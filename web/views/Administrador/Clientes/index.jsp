@@ -60,7 +60,7 @@
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="<%=request.getContextPath()%>/index.jsp">Salir</a></li>
+                        <li><a href="<%=request.getContextPath()%>/LogoutServlet">Salir</a></li>
                     </ul>
                 </div>
             </div>

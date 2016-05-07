@@ -17,15 +17,15 @@
         <title>STPI</title>
 
         <!--  SCSS login -->
-        <link rel="stylesheet" href="views/Cliente/css/loginstyle.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/views/Cliente/css/loginstyle.css">
         <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-        <link href="views/Cliente/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/views/Cliente/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="views/Cliente/css/freelancer.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/views/Cliente/css/freelancer.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="views/Cliente/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/views/Cliente/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -77,13 +77,15 @@
                                     <div class="arrow-left"></div>
                                     <div class="formholder">
                                         <div class="randompad">
-                                            <fieldset>
-                                                <label name="email">Email</label>
-                                                <input type="email" value="example@example.com" />
-                                                <label name="password">Password</label>
-                                                <input type="password" />
-                                                <input type="submit" value="Login" />
-                                            </fieldset>
+                                            <form method="POST" action="j_security_check">
+                                                <fieldset>
+                                                    <label for="j_username">Nombre de usuario</label>
+                                                    <input type="text" name="j_username" placeholder="Usuario" />
+                                                    <label for="j_password">Password</label>
+                                                    <input type="password" name="j_password" placeholder="***********"/>
+                                                    <input type="submit" value="Login" />
+                                                </fieldset>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +109,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <img class="img-responsive" src="views/Cliente/img/logo_stpi.png" alt="">
+                        <img class="img-responsive" src="${pageContext.request.contextPath}/views/Cliente/img/logo.png" alt="">
                         <div class="intro-text">
                             <span class="name">Sistema de Transporte Público Integrado</span>
                             <hr class="star-light">
@@ -319,27 +321,27 @@
         </footer>
 
         <!-- jQuery -->
-        <script src="views/Cliente/js/jquery.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Cliente/js/jquery.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="views/Cliente/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Cliente/js/bootstrap.min.js"></script>
 
         <!-- Plugin JavaScript -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="views/Cliente/js/classie.js"></script>
-        <script src="views/Cliente/js/cbpAnimatedHeader.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Cliente/js/classie.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Cliente/js/cbpAnimatedHeader.js"></script>
 
         <!-- Contact Form JavaScript -->
-        <script src="views/Cliente/js/jqBootstrapValidation.js"></script>
-        <script src="views/Cliente/js/contact_me.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Cliente/js/jqBootstrapValidation.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Cliente/js/contact_me.js"></script>
 
         <!-- Custom Theme JavaScript -->
-        <script src="views/Cliente/js/freelancer.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Cliente/js/freelancer.js"></script>
 
 
         <!-- Scripts del login -->
         <!--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
-        <script src="views/Cliente/js/login.js"></script>  
+        <script src="${pageContext.request.contextPath}/views/Cliente/js/login.js"></script>  
 
 
 
