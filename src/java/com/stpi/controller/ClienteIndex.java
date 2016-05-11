@@ -43,11 +43,14 @@ public class ClienteIndex extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        usuarioFacade.doRefresh();
         
         List<TransferConductor> registros = transferConductorFacade.findAll();
         request.setAttribute("registros", registros);
         
+        
         List<Usuario> clientes = usuarioFacade.findAll();
+        
         request.setAttribute("clientes",clientes);
         getServletContext().getRequestDispatcher("/views/Administrador/Clientes/index.jsp").forward(request, response);
     
