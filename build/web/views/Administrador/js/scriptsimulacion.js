@@ -4,22 +4,35 @@
  * and open the template in the editor.
  */
 
-$( document ).ready(function() {
-    var dataEnviar = {
-          '_token': 'hola'
-        };
+//Puerto de Glassfish
+$PORT = 9090;
+
+
+$(document).ready(function () {
+
+    $conductores = "";
+    getConductores();
+
+    function getConductores() {
         
-    $.ajax({
-    dataType: 'json',
-    data: dataEnviar,
-    cache: false,
-    url: 'http://localhost:9090/Proyecto_STPI/ajaxRequest',
-    type: 'get',
-    success: function (response) {
-        console.log('> > Respuesta: ');
-        console.log(response);
+        var dataEnviar = {
+            'ajaxEvent': 'ajaxGet'
+        };
+
+        $.ajax({
+            dataType: 'json',
+            data: dataEnviar,
+            cache: false,
+            url: 'http://localhost:' + $PORT + '/Proyecto_STPI/Conductores',
+            type: 'get',
+            success: function (response) {
+                console.log('> > Conductores: ');
+                $conductores = JSOG.decode(response);
+                console.log($conductores);
+            }
+        });
     }
-});
+
 
 });
 

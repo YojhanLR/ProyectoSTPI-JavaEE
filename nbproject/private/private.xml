@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Yojhan/Documents/NetBeansProjects/Proyecto_STPI/src/java/com/stpi/controller/ajaxRequest.java</file>
+            <file>file:/C:/Users/Yojhan/Documents/NetBeansProjects/Proyecto_STPI/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Yojhan/Documents/NetBeansProjects/Proyecto_STPI/src/java/com/stpi/controller/ConductorIndex.java</file>
+            <file>file:/C:/Users/Yojhan/Documents/NetBeansProjects/Proyecto_STPI/web/views/Administrador/Conductores/index.jsp</file>
+            <file>file:/C:/Users/Yojhan/Documents/NetBeansProjects/Proyecto_STPI/web/views/Administrador/js/scriptsimulacion.js</file>
+        </group>
     </open-files>
 </project-private>

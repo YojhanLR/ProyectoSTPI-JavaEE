@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stpi.ejb.ConductorFacadeLocal;
 import com.stpi.model.Conductor;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ConductorIndex extends HttpServlet {
     @EJB
     private ConductorFacadeLocal conductorFacade;
+    private static final Logger LOG = Logger.getLogger(ConductorIndex.class.getName());
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,16 +39,34 @@ public class ConductorIndex extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+         if (request.getParameterMap().containsKey("ajaxEvent")) {
+             ajaxGet(request,response);
+            }
+         
         List<Conductor> conductores = conductorFacade.findAll();
         request.setAttribute("conductores",conductores);
         
         getServletContext().getRequestDispatcher("/views/Administrador/Conductores/index.jsp").forward(request, response);
      
     }
-    private static final Logger LOG = Logger.getLogger(ConductorIndex.class.getName());
+    
+    private void ajaxGet (HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        List<Conductor> conductores = conductorFacade.findAll();
+         
+        ObjectMapper mapper = new ObjectMapper();
+        LOG.log(Level.INFO, mapper.writeValueAsString(conductores));
+        
+        try (PrintWriter out = response.getWriter()) {
+            out.print(mapper.writeValueAsString(conductores));
+        }
+    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

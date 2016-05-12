@@ -6,7 +6,7 @@
 package com.stpi.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.voodoodyne.jackson.jsog.JSOGGenerator;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "bus_conductor")
 @XmlRootElement
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@busconductorId")
+@JsonIdentityInfo(generator=JSOGGenerator.class)
 @NamedQueries({
     @NamedQuery(name = "BusConductor.findAll", query = "SELECT b FROM BusConductor b"),
     @NamedQuery(name = "BusConductor.findById", query = "SELECT b FROM BusConductor b WHERE b.id = :id"),

@@ -125,6 +125,7 @@
  
         <script src="${pageContext.request.contextPath}/public/plugins/bootstrap-table/dist/bootstrap-table.js"></script>
         <script src="${pageContext.request.contextPath}/views/Administrador/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Administrador/js/JSOG.js"></script>
         <script src="${pageContext.request.contextPath}/views/Administrador/js/scriptsimulacion.js"></script>
 
     </body>
