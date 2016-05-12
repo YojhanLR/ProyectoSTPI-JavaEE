@@ -5,6 +5,8 @@
  */
 package com.stpi.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -30,6 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "transfer_conductor")
 @XmlRootElement
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@transferconductorId")
 @NamedQueries({
     @NamedQuery(name = "TransferConductor.findAll", query = "SELECT t FROM TransferConductor t"),
     @NamedQuery(name = "TransferConductor.findById", query = "SELECT t FROM TransferConductor t WHERE t.id = :id"),

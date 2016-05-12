@@ -5,6 +5,8 @@
  */
 package com.stpi.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -28,6 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @XmlRootElement
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@bicicletaId")
 @NamedQueries({
     @NamedQuery(name = "Bicicleta.findAll", query = "SELECT b FROM Bicicleta b"),
     @NamedQuery(name = "Bicicleta.findByBicicletaId", query = "SELECT b FROM Bicicleta b WHERE b.bicicletaId = :bicicletaId"),

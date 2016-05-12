@@ -124,8 +124,8 @@
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
  
         <script src="${pageContext.request.contextPath}/public/plugins/bootstrap-table/dist/bootstrap-table.js"></script>
-         <script src="${pageContext.request.contextPath}/views/Administrador/js/bootstrap.min.js"></script>
-       
+        <script src="${pageContext.request.contextPath}/views/Administrador/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/views/Administrador/js/scriptsimulacion.js"></script>
 
     </body>
 </html>

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stpi.ejb.ConductorFacadeLocal;
 import com.stpi.model.Conductor;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,13 +19,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
 /**
  *
  * @author YojhanLR
  */
-public class ConductorIndex extends HttpServlet {
+public class ajaxRequest extends HttpServlet {
     @EJB
     private ConductorFacadeLocal conductorFacade;
 
@@ -39,14 +38,16 @@ public class ConductorIndex extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         List<Conductor> conductores = conductorFacade.findAll();
-        request.setAttribute("conductores",conductores);
+         
+        ObjectMapper mapper = new ObjectMapper();
+        LOG.log(Level.INFO, mapper.writeValueAsString(conductores));
         
-        getServletContext().getRequestDispatcher("/views/Administrador/Conductores/index.jsp").forward(request, response);
-     
+        try (PrintWriter out = response.getWriter()) {
+            out.print(mapper.writeValueAsString(conductores));
+        }
     }
-    private static final Logger LOG = Logger.getLogger(ConductorIndex.class.getName());
+    private static final Logger LOG = Logger.getLogger(ajaxRequest.class.getName());
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

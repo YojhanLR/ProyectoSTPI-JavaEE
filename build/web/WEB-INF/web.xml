@@ -104,6 +104,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.stpi.controller.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ajaxRequest</servlet-name>
+        <servlet-class>com.stpi.controller.ajaxRequest</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConductorUpdate</servlet-name>
         <url-pattern>/Conductores/update</url-pattern>
@@ -207,6 +211,10 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ajaxRequest</servlet-name>
+        <url-pattern>/ajaxRequest</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
