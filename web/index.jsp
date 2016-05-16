@@ -29,8 +29,8 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-        
-      
+
+
         <link href="${pageContext.request.contextPath}/public/css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -172,10 +172,10 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-                            
-                            
-                         
-                            
+
+
+
+
                             <div class="row control-group" style="padding-top:1.5em;padding-bottom:1.5em; border-bottom:1px solid #eeeeee">
                                 <label for="Ruta" class="col-xs-3 label-custom">Ruta</label>
                                 <div class="col-xs-9">
@@ -187,22 +187,20 @@
                                 </div>
                                 <p class="help-block text-danger"></p>
                             </div>
-                            
-   
-                               <div class="container">
-                                 <label for="Fecha" class="col-xs-3 label-custom">Fecha y Hora</label>
-                                 <div class="row">
-                                        <div class='col-sm-6'>
-                                            <div class="form-group">
-                                                <div class='input-group date' id='divMiCalendario'>
-                                                     <input type='text' name="FechaReservaTranfer" id="FechaReservaTransfer" class="form-control" />
-                                                             <span class="input-group-addon">
-                                                             <span class="glyphicon glyphicon-calendar"></span>
-                                                             </span>
-                                                 </div>
+
+
+                            <div class="row control-group" style="padding-top:1.5em;padding-bottom:1.5em; border-bottom:1px solid #eeeeee">
+                                <label for="Fecha" class="col-xs-3 label-custom">Fecha y Hora</label>
+                                    <div class='col-xs-9'>
+                                        <div class="form-group">
+                                            <div class='input-group date' id='divMiCalendario'>
+                                                <input type='text' name="FechaReservaTranfer" id="FechaReservaTransfer" class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
                                             </div>
-                                        </div>            
-                                </div>
+                                        </div>
+                                    </div>   
                             </div>
 
 
@@ -281,26 +279,22 @@
                                 </div>
                                 <p class="help-block text-danger"></p>
                             </div>
-                            
-                            <div class="container">
+
+                            <div class="row control-group" style="padding-top:1.5em;padding-bottom:1.5em; border-bottom:1px solid #eeeeee">
                                 <label for="Fecha" class="col-xs-3 label-custom">Fecha y Hora</label>
-                                <div class="row">
-                                        <div class='col-sm-6 '>
-                                                 <div class="form-group">
-                                                        <div class='input-group date' id='divMiCalendario2'>
-                                                            <input type='text' name="FechaReservaBici" id="FechaReservaBici" class="form-control" />
-                                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                                                    </span>
-                                                        </div>
-                                                  
-                                                </div>
+                                <div class="col-xs-9">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='divMiCalendario2'>
+                                            <input type='text' name="FechaReservaBici" id="FechaReservaBici" class="form-control" />
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
                                         </div>
+                                    </div>
                                 </div>
-   
                             </div>
-                           
-                          
-                            
+
+
+
                             <br>
                             <br>
                             <div id="success"></div>
@@ -387,26 +381,26 @@
         <script src="${pageContext.request.contextPath}/views/Cliente/js/login.js"></script>  
 
 
-     
-       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
         <script src="${pageContext.request.contextPath}/public/js/moment.min.js"></script>
         <script src="${pageContext.request.contextPath}/public/js/bootstrap-datetimepicker.min.js"></script>
         <script src="${pageContext.request.contextPath}/public/js/bootstrap-datetimepicker.es.js"></script>
-       
-        
-         <script type="text/javascript">
-           $('#divMiCalendario').datetimepicker({
-           format: 'YYYY-MM-DD HH:mm'       
-           });
-           $('#divMiCalendario').data("DateTimePicker").show();
+
+
+        <script type="text/javascript">
+            $('#divMiCalendario').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm'
+            });
+            //$('#divMiCalendario').data("DateTimePicker").show();
         </script>  
-        
-         <script type="text/javascript">
-           $('#divMiCalendario2').datetimepicker({
-           format: 'YYYY-MM-DD HH:mm'       
-           });
-           $('#divMiCalendario2').data("DateTimePicker").show();
+
+        <script type="text/javascript">
+            $('#divMiCalendario2').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm'
+            });
+            //$('#divMiCalendario2').data("DateTimePicker").show();
         </script>  
-        
+
     </body>
 </html>
