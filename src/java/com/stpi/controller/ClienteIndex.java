@@ -43,7 +43,7 @@ public class ClienteIndex extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        usuarioFacade.doRefresh();
+        
         
         List<TransferConductor> registros = transferConductorFacade.findAll();
         request.setAttribute("registros", registros);
