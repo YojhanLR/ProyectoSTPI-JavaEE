@@ -29,6 +29,9 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
+        
+      
+        <link href="${pageContext.request.contextPath}/public/css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -133,53 +136,73 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                         <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                        <form name="sentMessage" id="ReservarTransfer" novalidate>
+                        <form  method="post" action="<%= request.getContextPath()%>/Usuario_TransferStore" name="sentMessage" id="ReservarTransfer" novalidate>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Cédula</label>
-                                    <input type="text" class="form-control" placeholder="Cedula" id="CedulaTransfer" required data-validation-required-message="Por favor ingrese su Cedula">
+                                    <input name="CedulaTransfer" type="text" class="form-control" placeholder="Cedula" id="CedulaTransfer" required data-validation-required-message="Por favor ingrese su Cedula">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" placeholder="Nombre" id="NombreTransfer" required data-validation-required-message="Por favor ingrese su Nombre">
+                                    <input name="NombreTransfer" type="text" class="form-control" placeholder="Nombre" id="NombreTransfer" required data-validation-required-message="Por favor ingrese su Nombre">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Direccion</label>
-                                    <input type="text" class="form-control" placeholder="Direccion" id="DireccionTransfer" required data-validation-required-message="Por favor ingrese su Direccion">
+                                    <input name="DireccionTransfer" type="text" class="form-control" placeholder="Direccion" id="DireccionTransfer" required data-validation-required-message="Por favor ingrese su Direccion">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Telefono</label>
-                                    <input type="tel" class="form-control" placeholder="Telefono" id="TelefonoTransfer" required data-validation-required-message="Por favor ingrese su Telefono">
+                                    <input name="TelefonoTransfer" type="tel" class="form-control" placeholder="Telefono" id="TelefonoTransfer" required data-validation-required-message="Por favor ingrese su Telefono">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" placeholder="Email" id="EmailTransfer" required data-validation-required-message="Por favor ingrese su E-mail">
+                                    <input name="EmailTransfer" type="email" class="form-control" placeholder="Email" id="EmailTransfer" required data-validation-required-message="Por favor ingrese su E-mail">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             
+                            
+                         
+                            
                             <div class="row control-group" style="padding-top:1.5em;padding-bottom:1.5em; border-bottom:1px solid #eeeeee">
                                 <label for="Ruta" class="col-xs-3 label-custom">Ruta</label>
                                 <div class="col-xs-9">
-                                    <select class="form-control" id="Ruta">
-                                        <option>A</option>
-                                        <option>B</option>
-                                        <option>C</option>
+                                    <select class="form-control" id="Ruta" name="Ruta">
+                                        <option value="1">A</option>
+                                        <option value="2">B</option>
+                                        <option value="3">C</option>
                                     </select>
                                 </div>
                                 <p class="help-block text-danger"></p>
+                            </div>
+                            
+   
+                               <div class="container">
+                                 <label for="Fecha" class="col-xs-3 label-custom">Fecha y Hora</label>
+                                 <div class="row">
+                                        <div class='col-sm-6'>
+                                            <div class="form-group">
+                                                <div class='input-group date' id='divMiCalendario'>
+                                                     <input type='text' name="FechaReservaTranfer" id="FechaReservaTransfer" class="form-control" />
+                                                             <span class="input-group-addon">
+                                                             <span class="glyphicon glyphicon-calendar"></span>
+                                                             </span>
+                                                 </div>
+                                            </div>
+                                        </div>            
+                                </div>
                             </div>
 
 
@@ -211,7 +234,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                         <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                        <form name="sentMessage" id="ReservarBici" novalidate>
+                        <form method="post" action="<%= request.getContextPath()%>/Bicicleta_UsuarioStore"  name="sentMessage" id="ReservarBici" novalidate>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Cédula</label>
@@ -258,6 +281,26 @@
                                 </div>
                                 <p class="help-block text-danger"></p>
                             </div>
+                            
+                            <div class="container">
+                                <label for="Fecha" class="col-xs-3 label-custom">Fecha y Hora</label>
+                                <div class="row">
+                                        <div class='col-sm-6 '>
+                                                 <div class="form-group">
+                                                        <div class='input-group date' id='divMiCalendario2'>
+                                                            <input type='text' name="FechaReservaBici" id="FechaReservaBici" class="form-control" />
+                                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                                    </span>
+                                                        </div>
+                                                  
+                                                </div>
+                                        </div>
+                                </div>
+   
+                            </div>
+                           
+                          
+                            
                             <br>
                             <br>
                             <div id="success"></div>
@@ -344,6 +387,26 @@
         <script src="${pageContext.request.contextPath}/views/Cliente/js/login.js"></script>  
 
 
-
+     
+       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+        <script src="${pageContext.request.contextPath}/public/js/moment.min.js"></script>
+        <script src="${pageContext.request.contextPath}/public/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="${pageContext.request.contextPath}/public/js/bootstrap-datetimepicker.es.js"></script>
+       
+        
+         <script type="text/javascript">
+           $('#divMiCalendario').datetimepicker({
+           format: 'YYYY-MM-DD HH:mm'       
+           });
+           $('#divMiCalendario').data("DateTimePicker").show();
+        </script>  
+        
+         <script type="text/javascript">
+           $('#divMiCalendario2').datetimepicker({
+           format: 'YYYY-MM-DD HH:mm'       
+           });
+           $('#divMiCalendario2').data("DateTimePicker").show();
+        </script>  
+        
     </body>
 </html>

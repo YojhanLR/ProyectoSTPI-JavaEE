@@ -104,6 +104,14 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.stpi.controller.LogoutServlet</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>Usuario_TransferStore</servlet-name>
+        <servlet-class>com.stpi.controller.Usuario_TransferStore</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Bicicleta_UsuarioStore</servlet-name>
+        <servlet-class>com.stpi.controller.Bicicleta_UsuarioStore</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConductorUpdate</servlet-name>
         <url-pattern>/Conductores/update</url-pattern>
@@ -195,6 +203,14 @@
     <servlet-mapping>
         <servlet-name>TransferDestroy</servlet-name>
         <url-pattern>/Transfer/destroy</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>Usuario_TransferStore</servlet-name>
+        <url-pattern>/Usuario_TransferStore</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>Bicicleta_UsuarioStore</servlet-name>
+        <url-pattern>/Bicicleta_UsuarioStore</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>IndexHome</servlet-name>

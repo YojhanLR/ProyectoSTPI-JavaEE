@@ -30,6 +30,6 @@ public interface UsuarioFacadeLocal {
 
     int count();
     
-    void doRefresh();
+  
     
 }
