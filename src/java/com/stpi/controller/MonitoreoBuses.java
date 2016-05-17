@@ -63,7 +63,9 @@ public class MonitoreoBuses extends HttpServlet {
               
               if(pendientes.get(i).getFechaFin()== null )
               {
-               
+                  //Prueba actualización de kilometros en la tabla.
+                  // pendientes.get(i).setKilometrosRecorridos(pendientes.get(i).getKilometrosRecorridos() + 10);
+                  // busConductorFacade.edit(pendientes.get(i));
                  recorridos.add(pendientes.get(i));
               }
 

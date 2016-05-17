@@ -10,13 +10,13 @@
                        data-toggle="table">
 
                     <thead>
-                    <th data-sortable="true">Id</th>
-                    <th data-sortable="true">Bus Id</th>
-                    <th data-sortable="true">Bus placa</th>
-                    <th data-sortable="true">Conductor</th>
-                    <th data-sortable="true">Cédula</th>
-                    <th data-sortable="true">Fecha inicio</th>
-                    <th data-sortable="true">Posición actual</th>
+                    <th data-sortable="true" data-field="id">Id</th>
+                    <th data-sortable="true" data-field="busid">Bus Id</th>
+                    <th data-sortable="true" data-field="busplaca">Bus placa</th>
+                    <th data-sortable="true" data-field="conductor">Conductor</th>
+                    <th data-sortable="true" data-field="cedula">Cédula</th>
+                    <th data-sortable="true" data-field="fechaini">Fecha inicio</th>
+                    <th data-sortable="true" data-field="posicion">Posición actual</th>
                     </thead>
                     <tbody>
                         
