@@ -5,6 +5,8 @@
  */
 package com.stpi.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.voodoodyne.jackson.jsog.JSOGGenerator;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -31,6 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @XmlRootElement
+@JsonIdentityInfo(generator=JSOGGenerator.class)
 @NamedQueries({
     @NamedQuery(name = "Conductor.findAll", query = "SELECT c FROM Conductor c"),
     @NamedQuery(name = "Conductor.findByConductorId", query = "SELECT c FROM Conductor c WHERE c.conductorId = :conductorId"),

@@ -5,6 +5,8 @@
  */
 package com.stpi.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.voodoodyne.jackson.jsog.JSOGGenerator;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -29,6 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "transfer_conductor")
+@JsonIdentityInfo(generator=JSOGGenerator.class)
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TransferConductor.findAll", query = "SELECT t FROM TransferConductor t"),

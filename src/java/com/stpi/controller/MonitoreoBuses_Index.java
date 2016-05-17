@@ -5,40 +5,18 @@
  */
 package com.stpi.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stpi.ejb.BusConductorFacadeLocal;
-import com.stpi.ejb.BusFacadeLocal;
-import com.stpi.ejb.ConductorFacadeLocal;
-import com.stpi.ejb.RutaFacadeLocal;
-import com.stpi.model.BusConductor;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import javax.ejb.EJB;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author HECTOR
+ * @author YojhanLR
  */
-@WebServlet(name = "MonitoreoBuses", urlPatterns = {"/MonitoreoBuses"})
-public class MonitoreoBuses extends HttpServlet {
-    @EJB
-    private RutaFacadeLocal rutaFacade;
-    @EJB
-    private ConductorFacadeLocal conductorFacade;
-    @EJB
-    private BusFacadeLocal busFacade;
-    @EJB
-    private BusConductorFacadeLocal busConductorFacade;
-    
-    private int k=0;
-    
+public class MonitoreoBuses_Index extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -51,37 +29,7 @@ public class MonitoreoBuses extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-    
-          List<BusConductor> pendientes = busConductorFacade.findAll();
-          List<BusConductor> recorridos = new ArrayList();
-           
-          
-          for(int i=0; i<pendientes.size();i++)
-          {
-              
-              
-              if(pendientes.get(i).getFechaFin()== null )
-              {
-               
-                 recorridos.add(pendientes.get(i));
-              }
-
-              if(recorridos.size()== 3)
-              {
-                  i=pendientes.size()+100;
-              }
-              
-          }
-          
-          System.out.println("numero pendientes"+pendientes.size());
-          System.out.println("numero recorridos"+recorridos.size());
-          
-        
-          
-          //Llama función
-          ajaxResponse(recorridos,response);
-        
+        getServletContext().getRequestDispatcher("/views/Administrador/Monitoreo/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -123,15 +71,4 @@ public class MonitoreoBuses extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    
-    
-     private void ajaxResponse ( List<BusConductor> recorridos, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        ObjectMapper mapper = new ObjectMapper();
-        
-        try (PrintWriter out = response.getWriter()) {
-            out.print(mapper.writeValueAsString(recorridos));
-        }
-    }
 }

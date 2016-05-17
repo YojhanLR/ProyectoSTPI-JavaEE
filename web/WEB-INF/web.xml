@@ -104,7 +104,7 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.stpi.controller.LogoutServlet</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>Usuario_TransferStore</servlet-name>
         <servlet-class>com.stpi.controller.Usuario_TransferStore</servlet-class>
     </servlet>
@@ -112,13 +112,17 @@
         <servlet-name>Bicicleta_UsuarioStore</servlet-name>
         <servlet-class>com.stpi.controller.Bicicleta_UsuarioStore</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>MonitoreoBuses</servlet-name>
         <servlet-class>com.stpi.controller.MonitoreoBuses</servlet-class>
     </servlet>
-         <servlet>
+    <servlet>
         <servlet-name>AsignarRutasBus</servlet-name>
         <servlet-class>com.stpi.controller.AsignarRutasBus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MonitoreoBuses_Index</servlet-name>
+        <servlet-class>com.stpi.controller.MonitoreoBuses_Index</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConductorUpdate</servlet-name>
@@ -212,15 +216,15 @@
         <servlet-name>TransferDestroy</servlet-name>
         <url-pattern>/Transfer/destroy</url-pattern>
     </servlet-mapping>
-      <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Usuario_TransferStore</servlet-name>
         <url-pattern>/Usuario_TransferStore</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Bicicleta_UsuarioStore</servlet-name>
         <url-pattern>/Bicicleta_UsuarioStore</url-pattern>
     </servlet-mapping>
-      <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>MonitoreoBuses</servlet-name>
         <url-pattern>/MonitoreoBuses</url-pattern>
     </servlet-mapping>
@@ -239,6 +243,10 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MonitoreoBuses_Index</servlet-name>
+        <url-pattern>/Monitoreo/Buses</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
