@@ -8,8 +8,8 @@
 /* global $tableA, $tableB, $tableC */
 
 //Puerto de Glassfish
-$PORT = 9090;
-$URLBase = 'http://localhost:' + $PORT + '/Proyecto_STPI';
+$PORT = 8090;
+$URLBase = 'http://localhost:' + $PORT + '/ProyectoSTPI-JavaEE';
 
 
 $(document).ready(function () {

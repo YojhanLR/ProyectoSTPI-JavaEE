@@ -10,9 +10,13 @@ import com.stpi.ejb.BusConductorFacadeLocal;
 import com.stpi.ejb.BusFacadeLocal;
 import com.stpi.ejb.ConductorFacadeLocal;
 import com.stpi.ejb.RutaFacadeLocal;
+import com.stpi.model.Bus;
 import com.stpi.model.BusConductor;
+import com.stpi.model.Conductor;
+import com.stpi.model.Ruta;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -38,6 +42,7 @@ public class MonitoreoBuses extends HttpServlet {
     private BusConductorFacadeLocal busConductorFacade;
     
     private int k=0;
+    private int bandera=0;
     
 
     /**
@@ -52,37 +57,146 @@ public class MonitoreoBuses extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        
+        // Asignacion de recorridos de buses
+        
+         BusConductor asignaciones = new BusConductor();
+          
+          List<Conductor> conductores = conductorFacade.findAll();
+          Conductor conductor = new Conductor();
+          List<Bus> buses = busFacade.findAll();
+          Bus bus = new Bus();
+          List<Ruta> rutas = rutaFacade.findAll();
+          Ruta ruta = new Ruta();
+          
+          java.util.Date date= new java.util.Date();
+          
+           List<BusConductor> pendientes = busConductorFacade.findAll();
+           if(pendientes.size()==0){bandera=0;}
+        
+        int limite=0;
+          if(buses.size()>=conductores.size()){limite=conductores.size();}else{limite=buses.size();}
+           
+          if(bandera<=20){
+ 
+              for(int p=0;p<limite;p++)
+              {
+              conductor=conductores.get((int)(Math.random()*(0-limite)+limite));
+              bus= buses.get((int)(Math.random()*(0-limite)+limite));
+
+              ruta= rutas.get(k);
+             if(k==2) {k=0;}else{k++;}               
+          
+          
+          asignaciones.setBusId(bus);
+          asignaciones.setConductorId(conductor);
+          asignaciones.setRutaId(ruta);
+          asignaciones.setKilometrosRecorridos(0);
+          asignaciones.setFechaInicio(new Timestamp(date.getTime()));
+          asignaciones.setFechaFin(null);
+          
+          busConductorFacade.create(asignaciones);
+          
+              bandera=bandera+1;
+              }
+          }
+          
+          
+          
+        
+              
+          
+              
+          /*}else{
+           
+          for(int i=0;i<conductores.size();i++)
+          {
+              for(int j=0;j<pendientes.size();j++)
+              {
+                  if(conductores.get(i).getConductorId().equals(pendientes.get(j).getConductorId().getConductorId()))
+                  {}else{
+                    conductor=conductores.get(i);
+                    j=100000;
+                    i=100000;
+                  }
+               }
+           }
+          
+          for(int i=0;i<buses.size();i++)
+          {
+              for(int j=0;j<pendientes.size();j++)
+              {
+                  if(buses.get(i).getBusId().equals(pendientes.get(j).getBusId().getBusId()))
+                  {}else{
+                    bus=buses.get(i);
+                  }
+               }
+           
+          }
+         
+          
+             ruta= rutas.get(k);
+             if(k==2) {k=0;}else{k++;}               
+          
+          
+          asignaciones.setBusId(bus);
+          asignaciones.setConductorId(conductor);
+          asignaciones.setRutaId(ruta);
+          asignaciones.setKilometrosRecorridos(0);
+          asignaciones.setFechaInicio(new Timestamp(date.getTime()));
+          asignaciones.setFechaFin(null);
+          
+          busConductorFacade.create(asignaciones);
+          }*/
+         
+        
+       //Lista de recorridos a monitorear        
     
-          List<BusConductor> pendientes = busConductorFacade.findAll();
-          List<BusConductor> recorridos = new ArrayList();
+          List<BusConductor> pendientes2 = busConductorFacade.findAll();
+          List<BusConductor> recorridos2 = new ArrayList();
+          
+          java.util.Date date2= new java.util.Date();
            
           
-          for(int i=0; i<pendientes.size();i++)
+          for(int i=0; i<pendientes2.size();i++)
           {
               
               
-              if(pendientes.get(i).getFechaFin()== null )
+              if(pendientes2.get(i).getFechaFin()== null )
               {
-                  //Prueba actualización de kilometros en la tabla.
-                  // pendientes.get(i).setKilometrosRecorridos(pendientes.get(i).getKilometrosRecorridos() + 10);
-                  // busConductorFacade.edit(pendientes.get(i));
-                 recorridos.add(pendientes.get(i));
+            
+               pendientes2.get(i).setKilometrosRecorridos((float) (pendientes2.get(i).getKilometrosRecorridos() + Math.random()*(0.2-0.6)+0.6));
+               if(pendientes2.get(i).getKilometrosRecorridos()>=13 && pendientes2.get(i).getRutaId().getRutaId()== 1)
+               {
+                   pendientes2.get(i).setFechaFin(new Timestamp(date2.getTime()));
+                   
+               }
+                if(pendientes2.get(i).getKilometrosRecorridos()>=14 && pendientes2.get(i).getRutaId().getRutaId()== 2)
+               {
+                   pendientes2.get(i).setFechaFin(new Timestamp(date2.getTime()));
+               }
+                 if(pendientes2.get(i).getKilometrosRecorridos()>=14 && pendientes2.get(i).getRutaId().getRutaId()== 3)
+               {
+                   pendientes2.get(i).setFechaFin(new Timestamp(date2.getTime()));
+                   
+               }
+                 
+               busConductorFacade.edit(pendientes2.get(i));
+               recorridos2.add(pendientes2.get(i));
+               
+              
               }
 
-              if(recorridos.size()== 3)
+              if(recorridos2.size()== 12)
               {
                   i=pendientes.size()+100;
               }
               
           }
           
-          System.out.println("numero pendientes"+pendientes.size());
-          System.out.println("numero recorridos"+recorridos.size());
-          
-        
           
           //Llama función
-          ajaxResponse(recorridos,response);
+          ajaxResponse(recorridos2,response);
         
     }
 

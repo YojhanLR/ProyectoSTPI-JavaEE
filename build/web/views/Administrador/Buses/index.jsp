@@ -33,7 +33,6 @@
 
                     <thead>
                         <a href="<%=request.getContextPath()%>/Buses/create" class="btn btn-success pull-left" style="margin: 20px 0;">Crear nuevo</a> 
-                        <a href="<%=request.getContextPath()%>/Buses/AsignarRutasBus" class="btn btn-success pull-left" style="margin: 20px 0;">Asignar rutas</a> 
                         <th data-sortable="true">Id</th>
                         <th data-sortable="true">Matricula</th>
                         <th data-align="center" data-sortable="true">Estado</th>

@@ -312,18 +312,6 @@
          
 
         <!-- Contact Section -->
-                        <form method="post" action="<%= request.getContextPath()%>/MonitoreoBuses"  name="sentMessage" id="Buses" novalidate>
-                            <br>
-                            <br>
-                            <div id="success"></div>
-                            <div class="row">
-                                <div class="form-group col-xs-12">
-                                    <button type="submit" class="btn btn-success btn-lg">Buses</button>
-                                </div>
-                            </div>
-                        </form>
-
-
 
         <!-- Footer -->
         <footer class="text-center">
@@ -351,8 +339,8 @@
                         </div>
                         <div class="footer-col col-md-4">
                             <h3>Creadores</h3>
-                            <p>Yojhan Rodriguez</p>
-                            <p>Hector Hurtado</p>
+                            <p>creador1</p>
+                           
                         </div>
                     </div>
                 </div>

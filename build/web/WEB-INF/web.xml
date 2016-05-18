@@ -117,10 +117,6 @@
         <servlet-class>com.stpi.controller.MonitoreoBuses</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AsignarRutasBus</servlet-name>
-        <servlet-class>com.stpi.controller.AsignarRutasBus</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>MonitoreoBuses_Index</servlet-name>
         <servlet-class>com.stpi.controller.MonitoreoBuses_Index</servlet-class>
     </servlet>
@@ -227,10 +223,6 @@
     <servlet-mapping>
         <servlet-name>MonitoreoBuses</servlet-name>
         <url-pattern>/MonitoreoBuses</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AsignarRutasBus</servlet-name>
-        <url-pattern>/Buses/AsignarRutasBus</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>IndexHome</servlet-name>
