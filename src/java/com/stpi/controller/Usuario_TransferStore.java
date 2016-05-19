@@ -16,7 +16,6 @@ import com.stpi.model.Transfer;
 import com.stpi.model.TransferConductor;
 import com.stpi.model.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -24,7 +23,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,24 +36,19 @@ import java.util.logging.Logger;
  */
 @WebServlet(name = "Usuario_TransferStore", urlPatterns = {"/Usuario_TransferStore"})
 public class Usuario_TransferStore extends HttpServlet {
+
     @EJB
     private RutaFacadeLocal rutaFacade;
     @EJB
     private ConductorFacadeLocal conductorFacade;
-    
-    
-    
     @EJB
     private TransferFacadeLocal transferFacade;
-    
-    
     @EJB
     private TransferConductorFacadeLocal transferConductorFacade;
-      
     @EJB
     private UsuarioFacadeLocal usuarioFacade;
-    
-     private static final DateFormat fi = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+    private static final DateFormat fi = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -68,146 +61,133 @@ public class Usuario_TransferStore extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-             try {
-        String cedula = request.getParameter("CedulaTransfer");
-        String nombre = request.getParameter("NombreTransfer");
-        String direccion = request.getParameter("DireccionTransfer");
-        String telefono = request.getParameter("TelefonoTransfer");
-        String email= request.getParameter("EmailTransfer");
-        String $fecha_inicio= request.getParameter("FechaReservaTranfer");
-         Date fecha_i = fi.parse($fecha_inicio);
-   
+
+        try {
+            String cedula = request.getParameter("CedulaTransfer");
+            String nombre = request.getParameter("NombreTransfer");
+            String direccion = request.getParameter("DireccionTransfer");
+            String telefono = request.getParameter("TelefonoTransfer");
+            String email = request.getParameter("EmailTransfer");
+            String $fecha_inicio = request.getParameter("FechaReservaTranfer");
+            Date fecha_i = fi.parse($fecha_inicio);
+
        // java.util.Date date= new java.util.Date();
-       
-        
-   
-        
-       
-        int idRuta= Integer.parseInt(request.getParameter("Ruta"));
-        Ruta ruta = rutaFacade.find(idRuta);
-     
-     
-        
-    
-        
-        
-          Usuario usuario = new Usuario();
-          Conductor cond = new Conductor();
-          Transfer trans = new Transfer();
-          TransferConductor transferConductor = new TransferConductor();
-          List<Transfer> transfer = transferFacade.findAll();
-          List<Conductor> conductor = conductorFacade.findAll();
-          List<Ruta> rutas = rutaFacade.findAll();
-          List<TransferConductor> reservas =  transferConductorFacade.findAll();
-            
-           
+            int idRuta = Integer.parseInt(request.getParameter("Ruta"));
+            Ruta ruta = rutaFacade.find(idRuta);
+
+            Usuario usuario = new Usuario();
+            Conductor cond = new Conductor();
+            Transfer trans = new Transfer();
+            TransferConductor transferConductor = new TransferConductor();
+            List<Transfer> transfer = transferFacade.findAll();
+            List<Conductor> conductor = conductorFacade.findAll();
+            List<TransferConductor> reservas = transferConductorFacade.findAll();
+
             usuario.setCedula(cedula);
             usuario.setNombre(nombre);
             usuario.setDireccion(direccion);
             usuario.setTelefono(telefono);
             usuario.setCorreo(email);
             usuario.setEstado("Activo");
-            
-            usuarioFacade.create(usuario);
-            
-              
-      
-            for(int i=0; i<reservas.size();i++)
-            {
-                if((reservas.get(i).getFechaInicio().getYear() == fecha_i.getYear()) &&
-                        (reservas.get(i).getFechaInicio().getMonth()== fecha_i.getMonth()) &&
-                        (reservas.get(i).getFechaInicio().getDay()== fecha_i.getDay()))
-                {
 
-                    for(int j=0; j<transfer.size(); j++)
-                    {
-                   
-                        if(transfer.get(j).getTransferId().equals(reservas.get(i).getTransferId().getTransferId()))
-                        { }else{
-                            
-                            int id= transfer.get(j).getTransferId();
-                            int b=0;
-                            
-                           for(int l=0; l<reservas.size();l++)
-                           {
-                               
-                            if(reservas.get(l).getTransferId().getTransferId().equals(id)) 
-                            { l=10000; b=0; }else { b=1;}
-                            
-                            
-                           } 
-                           if(b==1){trans=transfer.get(j); j=10000;}
+            usuarioFacade.create(usuario);
+
+            for (int i = 0; i < reservas.size(); i++) {
+                if ((reservas.get(i).getFechaInicio().getYear() == fecha_i.getYear())
+                        && (reservas.get(i).getFechaInicio().getMonth() == fecha_i.getMonth())
+                        && (reservas.get(i).getFechaInicio().getDay() == fecha_i.getDay())) {
+
+                    for (int j = 0; j < transfer.size(); j++) {
+
+                        if (transfer.get(j).getTransferId().equals(reservas.get(i).getTransferId().getTransferId())) {
+                        } else {
+
+                            int id = transfer.get(j).getTransferId();
+                            int b = 0;
+
+                            for (int l = 0; l < reservas.size(); l++) {
+
+                                if (reservas.get(l).getTransferId().getTransferId().equals(id)) {
+                                    l = 10000;
+                                    b = 0;
+                                } else {
+                                    b = 1;
+                                }
+
+                            }
+                            if (b == 1) {
+                                trans = transfer.get(j);
+                                j = 10000;
+                            }
                         }
                     }
-                
-                     for(int k=0; k<conductor.size(); k++)
-                    {
-                        if(conductor.get(k).getConductorId().equals(reservas.get(i).getConductorId().getConductorId()))
-                        {}else{
-                           int id= conductor.get(k).getConductorId();
-                            int b=0;
-                            
-                           for(int l=0; l<reservas.size();l++)
-                           {
-                            if(reservas.get(l).getConductorId().getConductorId().equals(id)) 
-                            { l=10000; b=0; }else { b=1;}
-                            
-                            
-                           } 
-                           if(b==1){cond=conductor.get(k); k=10000;;}
+
+                    for (int k = 0; k < conductor.size(); k++) {
+                        if (conductor.get(k).getConductorId().equals(reservas.get(i).getConductorId().getConductorId())) {
+                        } else {
+                            int id = conductor.get(k).getConductorId();
+                            int b = 0;
+
+                            for (int l = 0; l < reservas.size(); l++) {
+                                if (reservas.get(l).getConductorId().getConductorId().equals(id)) {
+                                    l = 10000;
+                                    b = 0;
+                                } else {
+                                    b = 1;
+                                }
+
+                            }
+                            if (b == 1) {
+                                cond = conductor.get(k);
+                                k = 10000;;
+                            }
                         }
-                             
-                          
+
                     }
-                
-                       
+
                 } else {
-                  
-                     if(reservas.size()== (i+1))
-                     {
-                         
-                          trans=transfer.get(0);
-                          cond=conductor.get(0);   
-                   
-                     }
+
+                    if (reservas.size() == (i + 1)) {
+
+                        trans = transfer.get(0);
+                        cond = conductor.get(0);
+
+                    }
                 }
             }
-            
-           
-              transferConductor.setTransferId(trans);
-              transferConductor.setConductorId(cond);
-            
-             
-            
-             
-                            
-             
-             
-             transferConductor.setUsuarioId(usuario);
-             transferConductor.setKilometrosRecorridos(0);
-             transferConductor.setFechaFin(null);
-             transferConductor.setFechaInicio(fecha_i);
-           //  transferConductor.setFechaInicio(new Timestamp(date.getTime()));
-             transferConductor.setRutaId(ruta);
-           
-           
-              
-             
-             
 
-             
-             transferConductorFacade.create(transferConductor);
-             
+            transferConductor.setTransferId(trans);
+            transferConductor.setConductorId(cond);
+            transferConductor.setUsuarioId(usuario);
+            transferConductor.setKilometrosRecorridos(0);
+            transferConductor.setFechaFin(null);
+            transferConductor.setFechaInicio(fecha_i);
+            transferConductor.setRutaId(ruta);
+
+            transferConductorFacade.create(transferConductor);
+            
+            usuario.getTransferConductorList().add(transferConductor);
+            usuarioFacade.edit(usuario);
+            
+            cond.getTransferConductorList().add(transferConductor);
+            conductorFacade.edit(cond);
+            
+            trans.getTransferConductorList().add(transferConductor);
+            transferFacade.edit(trans);
+            
+            ruta.getTransferConductorList().add(transferConductor);
+            rutaFacade.edit(ruta);
+
             response.sendRedirect(request.getContextPath() + "/index.jsp");
-   
-    }  catch (ParseException ex) {
+
+        } catch (ParseException ex) {
             Logger.getLogger(ConductorStore.class.getName()).log(Level.SEVERE, null, ex);
         }
-   
+
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
