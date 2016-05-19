@@ -8,8 +8,8 @@
 /* global $tableA, $tableB, $tableC */
 
 //Puerto de Glassfish
-$PORT = 8090;
-$URLBase = 'http://localhost:' + $PORT + '/ProyectoSTPI-JavaEE';
+$PORT = 9090;
+$URLBase = 'http://localhost:' + $PORT + '/Proyecto_STPI';
 
 
 $(document).ready(function () {
@@ -82,7 +82,7 @@ $(document).ready(function () {
                       conductor: $recorridos[i].conductorId.nombre,
                       cedula: $recorridos[i].conductorId.cedula,
                       fechaini: date.toLocaleString('es'),
-                      posicion: $recorridos[i].kilometrosRecorridos + " Km"
+                      posicion: $recorridos[i].kilometrosRecorridos.toFixed(2) + " Km"
                   }
               });
          }
