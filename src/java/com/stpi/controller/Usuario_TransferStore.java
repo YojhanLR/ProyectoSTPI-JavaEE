@@ -82,7 +82,30 @@ public class Usuario_TransferStore extends HttpServlet {
             List<Transfer> transfer = transferFacade.findAll();
             List<Conductor> conductor = conductorFacade.findAll();
             List<TransferConductor> reservas = transferConductorFacade.findAll();
+            List<Usuario> usuarios = usuarioFacade.findAll();
+            int us=0;
+            
+            
+            for(int i=0;i<usuarios.size();i++){
+            if(usuarios.get(i).getCedula().equals(cedula)){
+            
+            usuario=usuarios.get(i);
+            usuario.setNombre(nombre);
+            usuario.setDireccion(direccion);
+            usuario.setTelefono(telefono);
+            usuario.setCorreo(email);
+            usuario.setEstado("Activo");
+            
+             usuarioFacade.edit(usuario);
+             
+             i=usuarios.size()+100;
+             us=1;
+            
+            }
+            }
+            
 
+             if(us==1){}else{
             usuario.setCedula(cedula);
             usuario.setNombre(nombre);
             usuario.setDireccion(direccion);
@@ -91,6 +114,18 @@ public class Usuario_TransferStore extends HttpServlet {
             usuario.setEstado("Activo");
 
             usuarioFacade.create(usuario);
+             }
+            
+            
+            
+            if(reservas.size()==0){
+                
+                 trans = transfer.get(0);
+                 cond = conductor.get(0);
+
+                
+                
+            }else{
 
             for (int i = 0; i < reservas.size(); i++) {
                 if ((reservas.get(i).getFechaInicio().getYear() == fecha_i.getYear())
@@ -154,6 +189,7 @@ public class Usuario_TransferStore extends HttpServlet {
 
                     }
                 }
+            }
             }
 
             transferConductor.setTransferId(trans);

@@ -236,45 +236,45 @@
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Cédula</label>
-                                    <input type="text" class="form-control" placeholder="Cedula" id="CedulaBici" required data-validation-required-message="Por favor ingrese su Cedula">
+                                    <input name="CedulaBici" type="text" class="form-control" placeholder="Cedula" id="CedulaBici" required data-validation-required-message="Por favor ingrese su Cedula">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" placeholder="Nombre" id="NombreBici" required data-validation-required-message="Por favor ingrese su Nombre">
+                                    <input name="NombreBici" type="text" class="form-control" placeholder="Nombre" id="NombreBici" required data-validation-required-message="Por favor ingrese su Nombre">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Direccion</label>
-                                    <input type="text" class="form-control" placeholder="Direccion" id="DireccionBici" required data-validation-required-message="Por favor ingrese su Direccion">
+                                    <input name="DireccionBici" type="text" class="form-control" placeholder="Direccion" id="DireccionBici" required data-validation-required-message="Por favor ingrese su Direccion">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Telefono</label>
-                                    <input type="tel" class="form-control" placeholder="Telefono" id="TelefonoBici" required data-validation-required-message="Por favor ingrese su Telefono">
+                                    <input name="TelefonoBici" type="tel" class="form-control" placeholder="Telefono" id="TelefonoBici" required data-validation-required-message="Por favor ingrese su Telefono">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" placeholder="Email" id="EmailBici" required data-validation-required-message="Por favor ingrese su E-mail">
+                                    <input name="EmailBici" type="email" class="form-control" placeholder="Email" id="EmailBici" required data-validation-required-message="Por favor ingrese su E-mail">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group" style="padding-top:1.5em;padding-bottom:1.5em; border-bottom:1px solid #eeeeee">
                                 <label for="Estacion" class="col-xs-3 label-custom">Estación</label>
                                 <div class="col-xs-9">
-                                    <select class="form-control" id="Estacion">
-                                        <option>Bici-A</option>
-                                        <option>Bici-B</option>
-                                        <option>Bici-C</option>
+                                    <select name="Estacion" class="form-control" id="Estacion">
+                                        <option value="1">Bici-A</option>
+                                        <option value="2">Bici-B</option>
+                                        <option value="3">Bici-C</option>
                                     </select>
                                 </div>
                                 <p class="help-block text-danger"></p>

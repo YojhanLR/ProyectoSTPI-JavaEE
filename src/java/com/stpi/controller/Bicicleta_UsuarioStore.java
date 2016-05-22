@@ -34,11 +34,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Bicicleta_UsuarioStore", urlPatterns = {"/Bicicleta_UsuarioStore"})
 public class Bicicleta_UsuarioStore extends HttpServlet {
     @EJB
-    private BicicletaFacadeLocal bicicletaFacade;
-    @EJB
     private UsuarioFacadeLocal usuarioFacade;
     @EJB
+    private BicicletaFacadeLocal bicicletaFacade;
+    @EJB
     private BicicletaUsuarioFacadeLocal bicicletaUsuarioFacade;
+    
+    
     
     
     
@@ -73,23 +75,54 @@ public class Bicicleta_UsuarioStore extends HttpServlet {
         
    
         
-          Usuario usuarioBici = new Usuario();
+          Usuario usuario = new Usuario();
           Bicicleta bici= new Bicicleta();
           BicicletaUsuario bicicletaUsuario = new BicicletaUsuario();
           List<BicicletaUsuario> reservas =  bicicletaUsuarioFacade.findAll();
           List<Bicicleta> bicicletas = bicicletaFacade.findAll();
             
-           
-            usuarioBici.setCedula(cedula);
-            usuarioBici.setNombre(nombre);
-            usuarioBici.setDireccion(direccion);
-            usuarioBici.setTelefono(telefono);
-            usuarioBici.setCorreo(email);
-            usuarioBici.setEstado("Activo");
+       
+            List<Usuario> usuarios = usuarioFacade.findAll();
+            int us=0;
+          
             
-            usuarioFacade.create(usuarioBici);
+            for(int i=0;i<usuarios.size();i++){
+            if(usuarios.get(i).getCedula().equals(cedula)){
+            usuario=usuarios.get(i);
+            usuario.setNombre(nombre);
+            usuario.setDireccion(direccion);
+            usuario.setTelefono(telefono);
+            usuario.setCorreo(email);
+            usuario.setEstado("Activo");
+            
+             usuarioFacade.edit(usuario);
+             
+             i=usuarios.size()+100;
+             us=1;
+            
+            }
+            }
+            
+
+             if(us==1){}else{
+            usuario.setCedula(cedula);
+            usuario.setNombre(nombre);
+            usuario.setDireccion(direccion);
+            usuario.setTelefono(telefono);
+            usuario.setCorreo(email);
+            usuario.setEstado("Activo");
+
+            usuarioFacade.create(usuario);
+             }
             
               
+           if(reservas.size()==0){
+                
+               bici=bicicletas.get(0);
+
+                
+                
+            }else{
       
             for(int i=0; i<reservas.size();i++)
             {
@@ -129,17 +162,22 @@ public class Bicicleta_UsuarioStore extends HttpServlet {
                      }
                 }
             }
+           }
             
            
              bicicletaUsuario.setBicicletaId(bici);
-   
-             bicicletaUsuario.setUsuarioId(usuarioBici);
+             bicicletaUsuario.setUsuarioId(usuario);
              bicicletaUsuario.setFechaFin(null);
              bicicletaUsuario.setFechaInicio(fecha_i);
            //  transferConductor.setFechaInicio(new Timestamp(date.getTime()));
             
 
             bicicletaUsuarioFacade.create(bicicletaUsuario);
+            
+            usuario.getBicicletaUsuarioList().add(bicicletaUsuario);
+            usuarioFacade.edit(usuario);
+            
+            
              
             response.sendRedirect(request.getContextPath() + "/index.jsp");
    
