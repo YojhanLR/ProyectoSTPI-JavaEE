@@ -40,6 +40,8 @@
             <![endif]-->
 
 
+          <link href="${pageContext.request.contextPath}/views/Cliente/css/sweetalert.css" rel="stylesheet">
+        
     </head>
 
     <body id="page-top" class="index">
@@ -209,7 +211,7 @@
                             <div id="success"></div>
                             <div class="row">
                                 <div class="form-group col-xs-12">
-                                    <button type="submit" class="btn btn-success btn-lg">Reservar</button>
+                                    <button type="submit" class="btn btn-success btn-lg" onClick="swal('Bien!', 'La reserva fue exitosa!','success');">Reservar</button>
                                 </div>
                             </div>
                         </form>
@@ -300,7 +302,7 @@
                             <div id="success"></div>
                             <div class="row">
                                 <div class="form-group col-xs-12">
-                                    <button type="submit" class="btn btn-success btn-lg">Reservar</button>
+                                    <button type="submit" class="btn btn-success btn-lg" onClick="swal('Bien!', 'La reserva fue exitosa!','success');">Reservar</button>
                                 </div>
                             </div>
                         </form>
@@ -386,6 +388,8 @@
         <script src="${pageContext.request.contextPath}/public/js/bootstrap-datetimepicker.min.js"></script>
         <script src="${pageContext.request.contextPath}/public/js/bootstrap-datetimepicker.es.js"></script>
 
+        
+        <script src="${pageContext.request.contextPath}/views/Cliente/js/sweetalert.min.js"></script>
 
         <script type="text/javascript">
             $('#divMiCalendario').datetimepicker({

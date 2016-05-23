@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/src/java/com/stpi/controller/MonitoreoBuses.java</file>
             <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/web/index.jsp</file>
             <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/src/java/com/stpi/controller/Usuario_TransferStore.java</file>
-            <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/web/views/Administrador/Clientes/index.jsp</file>
-            <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/src/java/com/stpi/ejb/BusConductorFacade.java</file>
-            <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/setup/sun-resources.xml</file>
-            <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/web/views/Administrador/Clientes/registros.jsp</file>
-            <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/src/java/com/stpi/ejb/BusConductorFacadeLocal.java</file>
+            <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/src/java/com/stpi/model/EstacionBicicleta.java</file>
+            <file>file:/C:/Users/PERSONAL/Documents/ProyectoSTPI-JavaEE/src/java/com/stpi/controller/Bicicleta_UsuarioStore.java</file>
         </group>
     </open-files>
 </project-private>
