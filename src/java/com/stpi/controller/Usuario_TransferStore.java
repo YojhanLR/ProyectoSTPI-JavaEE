@@ -27,6 +27,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -213,13 +214,25 @@ public class Usuario_TransferStore extends HttpServlet {
             
             ruta.getTransferConductorList().add(transferConductor);
             rutaFacade.edit(ruta);
-
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            
+            //response.sendRedirect(request.getContextPath() + "/index.jsp");
+            request = clearRequest(request);
+            request.setAttribute("alert","true");
+            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
         } catch (ParseException ex) {
             Logger.getLogger(ConductorStore.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    
+    private HttpServletRequest clearRequest (HttpServletRequest request){
+        Enumeration e2 = request.getAttributeNames();
+        while (e2.hasMoreElements()) {
+            String att = (String) e2.nextElement();
+            request.removeAttribute(att);
+        }
+        return request;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -211,7 +211,7 @@
                             <div id="success"></div>
                             <div class="row">
                                 <div class="form-group col-xs-12">
-                                    <button type="submit" class="btn btn-success btn-lg" onClick="swal('Bien!', 'La reserva fue exitosa!','success');">Reservar</button>
+                                    <button type="submit" class="btn btn-success btn-lg">Reservar</button>
                                 </div>
                             </div>
                         </form>
@@ -302,7 +302,7 @@
                             <div id="success"></div>
                             <div class="row">
                                 <div class="form-group col-xs-12">
-                                    <button type="submit" class="btn btn-success btn-lg" onClick="swal('Bien!', 'La reserva fue exitosa!','success');">Reservar</button>
+                                    <button type="submit" class="btn btn-success btn-lg">Reservar</button>
                                 </div>
                             </div>
                         </form>
@@ -395,14 +395,18 @@
             $('#divMiCalendario').datetimepicker({
                 format: 'YYYY-MM-DD HH:mm'
             });
-            //$('#divMiCalendario').data("DateTimePicker").show();
-        </script>  
-
-        <script type="text/javascript">
             $('#divMiCalendario2').datetimepicker({
                 format: 'YYYY-MM-DD HH:mm'
             });
-            //$('#divMiCalendario2').data("DateTimePicker").show();
+        </script>  
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                alert = "${alert}";
+                if(alert === "true"){
+                    swal('Bien!', 'La reserva fue exitosa!','success');
+                }
+            });
         </script>  
 
     </body>

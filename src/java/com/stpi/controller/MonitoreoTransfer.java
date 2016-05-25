@@ -5,11 +5,11 @@
  */
 package com.stpi.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stpi.ejb.ConductorFacadeLocal;
 import com.stpi.ejb.RutaFacadeLocal;
 import com.stpi.ejb.TransferConductorFacadeLocal;
 import com.stpi.ejb.TransferFacadeLocal;
-import com.stpi.model.Bus;
 import com.stpi.model.Conductor;
 import com.stpi.model.Ruta;
 import com.stpi.model.Transfer;
@@ -117,8 +117,20 @@ public class MonitoreoTransfer extends HttpServlet {
          }
           
      
-  
+          //Llama función
+          ajaxResponse(recorridos,response);
         
+    }
+    
+    
+     private void ajaxResponse ( List<TransferConductor> recorridos, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try (PrintWriter out = response.getWriter()) {
+            out.print(mapper.writeValueAsString(recorridos));
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
