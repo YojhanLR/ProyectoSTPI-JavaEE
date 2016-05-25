@@ -82,10 +82,17 @@ public class MonitoreoTransfer extends HttpServlet {
               
               if(pendientes.get(i).getFechaFin()== null)
               {
-            
-                  if(pendientes.get(i).getFechaInicio().equals(new Timestamp(date.getTime())) || pendientes.get(i).getKilometrosRecorridos()!=0)
+                  if((pendientes.get(i).getFechaInicio().getYear()== (new Timestamp(date.getTime()).getYear()) 
+                         &&  pendientes.get(i).getFechaInicio().getMonth()== (new Timestamp(date.getTime()).getMonth()) 
+                          &&  pendientes.get(i).getFechaInicio().getDay()== (new Timestamp(date.getTime()).getDay())
+                          &&  pendientes.get(i).getFechaInicio().getHours()== (new Timestamp(date.getTime()).getHours())
+                          &&  (pendientes.get(i).getFechaInicio().getMinutes()-1 == (new Timestamp(date.getTime()).getMinutes()) 
+                          || pendientes.get(i).getFechaInicio().getMinutes()+1 == (new Timestamp(date.getTime()).getMinutes()))
+                          )|| pendientes.get(i).getKilometrosRecorridos()!=0)
                   {
                pendientes.get(i).setKilometrosRecorridos((float) (pendientes.get(i).getKilometrosRecorridos() + Math.random()*(0.2-0.6)+0.6));
+               
+             //  System.out.println("Transfer: " +pendientes.get(i).getTransferId().getTransferId());
                if(pendientes.get(i).getKilometrosRecorridos()>=13 && pendientes.get(i).getRutaId().getRutaId()== 1)
                {
                    pendientes.get(i).setFechaFin(new Timestamp(date.getTime()));
