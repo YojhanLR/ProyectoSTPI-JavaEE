@@ -31,7 +31,7 @@
 
 
 
-        <link href="${pageContext.request.contextPath}/public/css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -40,8 +40,8 @@
             <![endif]-->
 
 
-          <link href="${pageContext.request.contextPath}/views/Cliente/css/sweetalert.css" rel="stylesheet">
-        
+        <link href="${pageContext.request.contextPath}/views/Cliente/css/sweetalert.css" rel="stylesheet">
+
     </head>
 
     <body id="page-top" class="index">
@@ -138,18 +138,18 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                         <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                        <form  method="post" action="<%= request.getContextPath()%>/Usuario_TransferStore" name="sentMessage" id="ReservarTransfer" novalidate>
+                        <form  method="post" action="<%= request.getContextPath()%>/Usuario_TransferStore" name="sentMessage" id="ReservarTransfer">
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Cédula</label>
-                                    <input name="CedulaTransfer" type="text" class="form-control" placeholder="Cedula" id="CedulaTransfer" required data-validation-required-message="Por favor ingrese su Cedula">
+                                    <input name="CedulaTransfer" type="text" class="form-control" pattern="\d*" placeholder="Cedula" id="CedulaTransfer" required data-validation-required-message="Por favor ingrese su Cedula">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Nombre</label>
-                                    <input name="NombreTransfer" type="text" class="form-control" placeholder="Nombre" id="NombreTransfer" required data-validation-required-message="Por favor ingrese su Nombre">
+                                    <input name="NombreTransfer" type="text" pattern ="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ][a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,}" class="form-control" placeholder="Nombre" id="NombreTransfer" required data-validation-required-message="Por favor ingrese su Nombre">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Telefono</label>
-                                    <input name="TelefonoTransfer" type="tel" class="form-control" placeholder="Telefono" id="TelefonoTransfer" required data-validation-required-message="Por favor ingrese su Telefono">
+                                    <input name="TelefonoTransfer" type="text" class="form-control" pattern="\d*" placeholder="Telefono" id="TelefonoTransfer" required data-validation-required-message="Por favor ingrese su Telefono">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@
                             <div class="row control-group" style="padding-top:1.5em;padding-bottom:1.5em; border-bottom:1px solid #eeeeee">
                                 <label for="Ruta" class="col-xs-3 label-custom">Ruta</label>
                                 <div class="col-xs-9">
-                                    <select class="form-control" id="Ruta" name="Ruta">
+                                    <select required class="form-control" id="Ruta" name="Ruta">
                                         <option value="1">A</option>
                                         <option value="2">B</option>
                                         <option value="3">C</option>
@@ -193,16 +193,17 @@
 
                             <div class="row control-group" style="padding-top:1.5em;padding-bottom:1.5em; border-bottom:1px solid #eeeeee">
                                 <label for="Fecha" class="col-xs-3 label-custom">Fecha y Hora</label>
-                                    <div class='col-xs-9'>
-                                        <div class="form-group">
-                                            <div class='input-group date' id='divMiCalendario'>
-                                                <input type='text' name="FechaReservaTranfer" id="FechaReservaTransfer" class="form-control" />
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                            </div>
+                                <div class='col-xs-9'>
+                                    <div class="form-group">
+                                        <div class='input-group date' id='divMiCalendario'>
+                                            <input type='text' required name="FechaReservaTranfer" id="FechaReservaTransfer" class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
                                         </div>
-                                    </div>   
+                                    </div>
+                                    
+                                </div>   
                             </div>
 
 
@@ -234,18 +235,18 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                         <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                        <form method="post" action="<%= request.getContextPath()%>/Bicicleta_UsuarioStore"  name="sentMessage" id="ReservarBici" novalidate>
+                        <form method="post" action="<%= request.getContextPath()%>/Bicicleta_UsuarioStore"  name="sentMessage" id="ReservarBici">
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Cédula</label>
-                                    <input name="CedulaBici" type="text" class="form-control" placeholder="Cedula" id="CedulaBici" required data-validation-required-message="Por favor ingrese su Cedula">
+                                    <input name="CedulaBici" type="text" class="form-control" pattern="\d*" placeholder="Cedula" id="CedulaBici" required data-validation-required-message="Por favor ingrese su Cedula">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Nombre</label>
-                                    <input name="NombreBici" type="text" class="form-control" placeholder="Nombre" id="NombreBici" required data-validation-required-message="Por favor ingrese su Nombre">
+                                    <input name="NombreBici" type="text" class="form-control" pattern ="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ][a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,}" placeholder="Nombre" id="NombreBici" required data-validation-required-message="Por favor ingrese su Nombre">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -259,7 +260,7 @@
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Telefono</label>
-                                    <input name="TelefonoBici" type="tel" class="form-control" placeholder="Telefono" id="TelefonoBici" required data-validation-required-message="Por favor ingrese su Telefono">
+                                    <input name="TelefonoBici" type="tel" class="form-control" pattern="\d*" placeholder="Telefono" id="TelefonoBici" required data-validation-required-message="Por favor ingrese su Telefono">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -273,7 +274,7 @@
                             <div class="row control-group" style="padding-top:1.5em;padding-bottom:1.5em; border-bottom:1px solid #eeeeee">
                                 <label for="Estacion" class="col-xs-3 label-custom">Estación</label>
                                 <div class="col-xs-9">
-                                    <select name="Estacion" class="form-control" id="Estacion">
+                                    <select name="Estacion" required class="form-control" id="Estacion">
                                         <option value="1">Bici-A</option>
                                         <option value="2">Bici-B</option>
                                         <option value="3">Bici-C</option>
@@ -287,7 +288,7 @@
                                 <div class="col-xs-9">
                                     <div class="form-group">
                                         <div class='input-group date' id='divMiCalendario2'>
-                                            <input type='text' name="FechaReservaBici" id="FechaReservaBici" class="form-control" />
+                                            <input type='text' required name="FechaReservaBici" id="FechaReservaBici" class="form-control" />
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
@@ -310,8 +311,8 @@
                 </div>
             </div>
         </section>
-                            
-         
+
+
 
         <!-- Contact Section -->
 
@@ -342,7 +343,7 @@
                         <div class="footer-col col-md-4">
                             <h3>Creadores</h3>
                             <p>creador1</p>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -360,52 +361,48 @@
 
         <!-- jQuery -->
         <script src="${pageContext.request.contextPath}/views/Cliente/js/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="${pageContext.request.contextPath}/views/Cliente/js/bootstrap.min.js"></script>
 
-        <!-- Plugin JavaScript -->
+         
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src="${pageContext.request.contextPath}/views/Cliente/js/classie.js"></script>
         <script src="${pageContext.request.contextPath}/views/Cliente/js/cbpAnimatedHeader.js"></script>
-
-        <!-- Contact Form JavaScript -->
         <script src="${pageContext.request.contextPath}/views/Cliente/js/jqBootstrapValidation.js"></script>
         <script src="${pageContext.request.contextPath}/views/Cliente/js/contact_me.js"></script>
-
-        <!-- Custom Theme JavaScript -->
         <script src="${pageContext.request.contextPath}/views/Cliente/js/freelancer.js"></script>
 
 
         <!-- Scripts del login -->
-        <!--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
         <script src="${pageContext.request.contextPath}/views/Cliente/js/login.js"></script>  
 
 
 
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-        <script src="${pageContext.request.contextPath}/public/js/moment.min.js"></script>
-        <script src="${pageContext.request.contextPath}/public/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
         <script src="${pageContext.request.contextPath}/public/js/bootstrap-datetimepicker.es.js"></script>
-
-        
         <script src="${pageContext.request.contextPath}/views/Cliente/js/sweetalert.min.js"></script>
 
         <script type="text/javascript">
-            $('#divMiCalendario').datetimepicker({
-                format: 'YYYY-MM-DD HH:mm'
-            });
-            $('#divMiCalendario2').datetimepicker({
-                format: 'YYYY-MM-DD HH:mm'
-            });
-        </script>  
-
-        <script type="text/javascript">
-            $(document).ready(function(){
+            $(document).ready(function () {
                 alert = "${alert}";
-                if(alert === "true"){
-                    swal('Bien!', 'La reserva fue exitosa!','success');
+                if (alert === "true") {
+                    swal('Bien!', 'La reserva fue exitosa!', 'success');
                 }
+
+                $('#divMiCalendario').datetimepicker({
+                     format: 'YYYY-MM-DD HH:mm',
+                     minDate: moment(),
+                     locale: 'es'
+                });
+
+                $('#divMiCalendario2').datetimepicker({
+                    format: 'YYYY-MM-DD HH:mm',
+                    minDate: moment(),
+                    locale: 'es'
+                });
             });
         </script>  
 
