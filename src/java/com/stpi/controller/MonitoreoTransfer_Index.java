@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author YojhanLR
  */
-public class MonitoreoBuses_Index extends HttpServlet {
+public class MonitoreoTransfer_Index extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,7 +29,7 @@ public class MonitoreoBuses_Index extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/views/Administrador/Buses/Monitoreo/index.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/views/Administrador/Transfer/Monitoreo/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

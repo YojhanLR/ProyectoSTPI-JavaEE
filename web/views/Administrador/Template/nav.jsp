@@ -27,7 +27,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transfer <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="<%=request.getContextPath()%>/Transfer">Listar Transfer</a></li>
-                        <li><a href="#">Monitoreo de Rutas</a></li>
+                        <li><a href="<%=request.getContextPath()%>/Monitoreo/Transfer">Monitoreo de Rutas</a></li>
                     </ul>
                 </li>
                 <li><a href="<%=request.getContextPath()%>/Bicis">Bici-Agil</a></li>

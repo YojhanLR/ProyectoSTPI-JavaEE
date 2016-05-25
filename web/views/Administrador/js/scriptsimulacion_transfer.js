@@ -32,10 +32,10 @@ $(document).ready(function () {
             dataType: 'json',
             data: dataEnviar,
             cache: false,
-            url: $URLBase+'/MonitoreoBuses',
+            url: $URLBase+'/MonitoreoTransfer',
             type: 'get',
             success: function (response) {
-                console.log('> > Lista de recorridos (Buses): ');
+                console.log('> > Lista de recorridos (Transfer): ');
                 $recorridos = JSOG.decode(response);
                 console.log($recorridos);
                 printTable($recorridos);
@@ -77,10 +77,12 @@ $(document).ready(function () {
                   index: index,
                   row: {
                       id: $recorridos[i].id,
-                      busid: $recorridos[i].busId.busId,
-                      busplaca: $recorridos[i].busId.matricula,
+                      transferid: $recorridos[i].transferId.transferId,
+                      transferplaca: $recorridos[i].transferId.matricula,
                       conductor: $recorridos[i].conductorId.nombre,
                       cedula: $recorridos[i].conductorId.cedula,
+                      usuarionombre: $recorridos[i].usuarioId.nombre,
+                      usuariocedula: $recorridos[i].usuarioId.cedula,
                       fechaini: date.toLocaleString('es'),
                       posicion: $recorridos[i].kilometrosRecorridos.toFixed(2) + " Km"
                   }

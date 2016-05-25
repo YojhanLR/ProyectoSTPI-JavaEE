@@ -37,7 +37,7 @@
                         <div class="col-xs-10 col-xs-offset-1">
                             <img src="${pageContext.request.contextPath}/views/Administrador/img/Troncal_A.png" class="img-responsive center-block" alt="Cinque Terre">
                         </div>
-                        <jsp:include page='/views/Administrador/Monitoreo/table.jsp'>
+                        <jsp:include page='/views/Administrador/Buses/Monitoreo/table.jsp'>
                             <jsp:param name="rutaLetra" value="A"/>
                         </jsp:include>
                     </div>
@@ -45,7 +45,7 @@
                         <div class="col-xs-10 col-xs-offset-1">
                             <img src="${pageContext.request.contextPath}/views/Administrador/img/Troncal_B.png" class="img-responsive center-block" alt="Cinque Terre">
                         </div>
-                        <jsp:include page='/views/Administrador/Monitoreo/table.jsp'>
+                        <jsp:include page='/views/Administrador/Buses/Monitoreo/table.jsp'>
                             <jsp:param name="rutaLetra" value="B"/>
                         </jsp:include>
                     </div>
@@ -53,7 +53,7 @@
                         <div class="col-xs-10 col-xs-offset-1">
                             <img src="${pageContext.request.contextPath}/views/Administrador/img/Troncal_C.png" class="img-responsive center-block" alt="Cinque Terre">
                         </div>
-                        <jsp:include page='/views/Administrador/Monitoreo/table.jsp'>
+                        <jsp:include page='/views/Administrador/Buses/Monitoreo/table.jsp'>
                             <jsp:param name="rutaLetra" value="C"/>
                         </jsp:include>
                     </div>
